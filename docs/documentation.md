@@ -14,7 +14,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 
 <details>
-<summary><h3>WHO（誰のため？）</h3></summary>　　
+<summary><h3>Who（誰のため？）</h3></summary>　　
 
 - 祖父（95歳　男性）
   - 1人暮らし
@@ -37,7 +37,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 </details>
 
 <details>
-<summary><h3>WHAT（現状の課題は何？）</h3></summary>
+<summary><h3>What（現状の課題は何？）</h3></summary>
 
 - 情報共有の難しさ
   - 家族、医療従事者、介護スタッフなどが関わる中で全員が最新の情報を把握し続けることは困難です。
@@ -55,7 +55,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 </details>
 
 <details>
-<summary><h3>WHY（なぜ課題を解決したい？）</h3></summary>
+<summary><h3>Why（なぜ課題を解決したい？）</h3></summary>
 
 - 情報共有の難しさ
   - すべての関係者が最新かつ一貫した情報を持つことで、在宅療養者の状況把握と対応が迅速かつ適切に行なえるため。
@@ -73,7 +73,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 </details>
 
 <details>
-<summary><h3>HOW（どのようにして実現する？）</h3></summary>
+<summary><h3>How（どのようにして実現する？）</h3></summary>
 
 - 情報共有の難しさ
   - チャット機能を備えたプロダクトを導入することで、全ての関係者がリアルタイムで情報を共有できる環境を作ります。
