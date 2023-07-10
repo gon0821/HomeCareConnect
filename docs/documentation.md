@@ -150,20 +150,35 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 </details>
 
 
-### システム構成図
-
-
-### 使用技術
 
 <details>
-<summary><h3>設計</h3></summary>
+<summary><h2>設計</h2></summary>
 
   <details>
-  <summary><h4>業務フロー図</h4></summary>
-    <strong>・認証機能（医療介護従事者）</strong>
-    
-    ![業務フロー図（医療介護従事者における認証機能）](./img/workflow_diagram/login_staff.jpg)
+  <summary><h3>業務フロー図</h3></summary>
+
+  <strong>・認証機能（医療介護従事者）</strong>
+  ![医療介護従事者における認証機能](./img/workflow_diagram/login_staff.jpg)
+
+  <strong>・認証機能（患者本人）</strong>
+  ![患者本人における認証機能](./img/workflow_diagram/login_patient.jpg)
+
+  <strong>・認証機能（患者家族）</strong>
+  ![患者家族における認証機能](./img/workflow_diagram/login_family.jpg)
+
+  <strong>・チャット機能</strong>
+  ![チャット機能](./img/workflow_diagram/chat_function.jpg)
+
+  <strong>・お薬管理機能</strong>
+  ![お薬管理機能](./img/workflow_diagram/medication_function.jpg)
+
   </details>
 
 
 </details>
+
+
+### システム構成図
+
+
+### 使用技術
