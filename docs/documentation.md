@@ -89,6 +89,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 </details>
 
+## 要件定義
 
 <details>
 <summary><h3>機能要件</h3></summary>
@@ -149,34 +150,50 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 </details>
 
-
+## 設計
 
 <details>
-<summary><h2>設計</h2></summary>
+<summary><h3>業務フロー</h3></summary>
 
   <details>
-  <summary><h3>業務フロー図</h3></summary>
+  <summary><h4>認証機能</h4></summary>
 
-  <strong>・認証機能（医療介護従事者）</strong>
-  ![医療介護従事者における認証機能](./img/workflow_diagram/login_staff.jpg)
-
-  <strong>・認証機能（患者本人）</strong>
-  ![患者本人における認証機能](./img/workflow_diagram/login_patient.jpg)
+  <strong>・認証機能（医療介護従事者・患者本人）</strong>
+  ![認証機能](./img/workflow_diagram/login_staff_patient.jpg)
 
   <strong>・認証機能（患者家族）</strong>
-  ![患者家族における認証機能](./img/workflow_diagram/login_family.jpg)
-
-  <strong>・チャット機能</strong>
-  ![チャット機能](./img/workflow_diagram/chat_function.jpg)
-
-  <strong>・お薬管理機能</strong>
-  ![お薬管理機能](./img/workflow_diagram/medication_function.jpg)
+  ![認証機能](./img/workflow_diagram/login_family3.jpg)
 
   </details>
 
+  <details>
+  <summary><h4>チャット機能, お薬管理機能</h4></summary>
+
+  ![チャット機能,お薬管理機能](./img/workflow_diagram/chat_medication_function.jpg)
+
+  </details>
 
 </details>
 
+<details>
+<summary><h3>画面遷移図</h3></summary>
+
+</details>
+
+<details>
+<summary><h3>ワイヤーフレーム</h3></summary>
+
+</details>
+
+<details>
+<summary><h3>ER図</h3></summary>
+
+</details>
+
+<details>
+<summary><h3>テーブル定義書</h3></summary>
+
+</details>
 
 ### システム構成図
 
