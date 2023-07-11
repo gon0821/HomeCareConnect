@@ -245,3 +245,10 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 
 ### 使用技術
+
+<details>
+<summary><h3>参考内容</h3></summary>
+
+- [フィードバック](feedback.md)
+
+</details>
