@@ -178,6 +178,8 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>画面遷移図</h3></summary>
 
+![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram.jpg)
+
 </details>
 
 <details>
