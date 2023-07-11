@@ -164,7 +164,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
   ![認証機能](./img/workflow_diagram/login_staff_patient.jpg)
 
   <strong>・認証機能（患者家族）</strong>
-  ![認証機能](./img/workflow_diagram/login_family3.jpg)
+  ![認証機能](./img/workflow_diagram/login_family.jpg)
 
   </details>
 
@@ -180,12 +180,56 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>画面遷移図</h3></summary>
 
-![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram.jpg)
+![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram2.jpg)
 
 </details>
 
 <details>
 <summary><h3>ワイヤーフレーム</h3></summary>
+
+  <details>
+  <summary><h4>ユーザー登録、ログイン機能（患者側）</h4></summary>
+
+  ![ユーザー登録、ログイン機能（患者側）](./img/wire_frame/login_patient.jpg)
+
+  </details>
+
+  <details>
+  <summary><h4>ユーザー登録、ログイン機能（医療介護側）</h4></summary>
+
+  ![ユーザー登録、ログイン機能（医療介護側）](./img/wire_frame/login_staff.jpg)
+
+  </details>
+
+  <details>
+  <summary><h4>患者登録、患者リスト機能（医療介護側のみ）</h4></summary>
+
+  ![患者登録、患者リスト機能](./img/wire_frame/list_patient.jpeg)
+
+  </details>
+
+  <details>
+  <summary><h4>チャット機能（共通）</h4></summary>
+
+  ![チャット機能](./img/wire_frame/chat_function.jpeg)
+
+  </details>
+
+  <details>
+  <summary><h4>お薬管理機能（共通）</h4></summary>
+
+  ![お薬管理機能](./img/wire_frame/medication_management.jpeg)
+
+  </details>
+
+  <details>
+  <summary><h4>メニュー機能（共通）</h4></summary>
+
+  ![メニュー機能](./img/wire_frame/menu_list.jpeg)
+
+  </details>
+
+
 
 </details>
 
