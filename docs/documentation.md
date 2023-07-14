@@ -82,8 +82,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
   - 薬の種類、服用時間、量などを登録し、リマインダー機能で服用時間になると通知が届くようにします。
   - 服用確認のチェック機能をつけることで、服用されたことを確認できるようにします。
 - 非常時の対応
-  - チャット機能に通常の投稿フォームとは別に緊急連絡用の投稿フォームを追加します。
-  - このフォームから投稿された内容は、各ユーザーの通知設定がオフであっても、必ず全ての関係者に通知が届くように設定します。
+  - 非常時にはまず電話で対応することになると思いますが、電話が繋がらない場合も想定し、チャットを通じて緊急時にも情報を迅速に共有し、適切な対応が可能になるようにします。
 - 負担の偏り
   - チャット機能を用いた適切な情報共有と調整によって、ケアタスクを分散し、全員が参加するようなケア体制を作ります。
 
@@ -96,33 +95,30 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 - 認証機能
   - ユーザー登録
-    - ユーザーID、パスワード、名前、職種名、合言葉が登録できる。
+    - ユーザーID、パスワード、名前、メールアドレス、施設名、職種名が登録できる。
+    - ログイン中のユーザーが別のユーザーを登録できる。
+    - 患者家族の一人が始めにユーザー登録し、参加してほしい人をユーザー登録し、IDとパスワードを伝える形式を取る。
   - ログイン
     - ユーザーID、パスワードを入力し、ログインできる。
   - ログアウト
     - メニュー画面より選択し、ログアウトできる。
   - ユーザーID,パスワード以外でのログイン
-    - ユーザーID、パスワードを忘れた場合は、名前と誕生日と合言葉の入力でログインできる。
+    - ユーザーID、パスワードを忘れた場合は、メールアドレスより取得できる。
 
 - チャット機能
   - リアルタイムでメッセージができる。
   - 通知を設定できる。
-  - 緊急用の投稿フォームより緊急の連絡ができる。
   - スレッド機能
   - スタンプやリアクション機能
 
 - お薬管理機能
   - 薬の登録、確認、更新、削除できる。
-    - 薬の名前、時間、服用する量、メモ
+    - 薬の名前、時間、服用する量、期間、メモ
   - 服用リマインダー
     - 登録した薬の服用時間から１時間過ぎても服用チェックされていなかったら、通知が送られる。
   - 服用チェック
     - 薬を服用したことを確認できるチェック機能
     - 間違えてチェックしたときのために取り消し機能
-
-- 患者登録・管理機能
-  - 医療介護従事者が在宅療養者を登録、管理、更新、削除できる。
-  - 担当している在宅療養者をリスト表示できる。
 
 
 </details>
@@ -158,11 +154,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
   <details>
   <summary><h4>認証機能</h4></summary>
 
-  <strong>・認証機能（医療介護従事者・患者本人）</strong>
-  ![認証機能](./img/workflow_diagram/login_staff_patient.jpg)
-
-  <strong>・認証機能（患者家族）</strong>
-  ![認証機能](./img/workflow_diagram/login_family.jpg)
+  ![認証機能](./img/workflow_diagram/login_user.jpg)
 
   </details>
 
@@ -178,7 +170,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>画面遷移図</h3></summary>
 
-![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram2.jpg)
+![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram3.jpg)
 
 </details>
 
@@ -186,44 +178,32 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <summary><h3>ワイヤーフレーム</h3></summary>
 
   <details>
-  <summary><h4>ユーザー登録、ログイン機能（患者側）</h4></summary>
+  <summary><h4>ユーザー登録、ログイン機能</h4></summary>
 
-  ![ユーザー登録、ログイン機能（患者側）](./img/wire_frame/login_patient.jpg)
-
-  </details>
-
-  <details>
-  <summary><h4>ユーザー登録、ログイン機能（医療介護側）</h4></summary>
-
-  ![ユーザー登録、ログイン機能（医療介護側）](./img/wire_frame/login_staff.jpg)
+  ![ユーザー登録、ログイン機能](./img/wire_frame/login_user.jpeg)
 
   </details>
 
   <details>
-  <summary><h4>患者登録、患者リスト機能（医療介護側のみ）</h4></summary>
-
-  ![患者登録、患者リスト機能](./img/wire_frame/list_patient.jpeg)
-
-  </details>
-
-  <details>
-  <summary><h4>チャット機能（共通）</h4></summary>
+  <summary><h4>チャット機能</h4></summary>
 
   ![チャット機能](./img/wire_frame/chat_function.jpeg)
 
   </details>
 
   <details>
-  <summary><h4>お薬管理機能（共通）</h4></summary>
+  <summary><h4>お薬管理機能</h4></summary>
 
   ![お薬管理機能](./img/wire_frame/medication_management.jpeg)
 
   </details>
 
   <details>
-  <summary><h4>メニュー機能（共通）</h4></summary>
+  <summary><h4>メニュー機能</h4></summary>
 
-  ![メニュー機能](./img/wire_frame/menu_list.jpeg)
+  ![メニュー機能1](./img/wire_frame/menu_list1.jpeg)
+  ![メニュー機能2](./img/wire_frame/menu_list2.jpeg)
+
 
   </details>
 
