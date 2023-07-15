@@ -1,0 +1,46 @@
+services:
+  # データベース
+  db:
+    # イメージの指定
+    image: mysql:8.0
+    # M1 Macの場合はMySQLが動かない場合があるのでplatformを指定する
+    platform: linux/x86_64
+    # コンテナ起動時に実行するコマンド (文字コードをutf8に設定)
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    # ボリュームのマウント(コンテナが破棄されてもデータベースのデータは残る)
+    volumes:
+      - db_data:/var/lib/mysql
+    # ポートのマッピング(ホストからMySQLにアクセスするため)
+    ports:
+      - "3306:3306"
+    # 環境変数の設定
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: 'Asia/Tokyo'
+
+  # アプリケーションサーバー
+  backend:
+    # ビルドするDockerfileの場所
+    build: ./backend/
+    platform: linux/x86_64
+    # コンテナ起動時に実行するコマンド （既存のRailsサーバーPIDファイルを削除した後、Railsサーバーを起動）
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    # ./backendディレクトリをコンテナの/appディレクトリにマウント (コードの変更をリアルタイムで反映)
+    volumes:
+      - ./backend:/app
+    # ポートのマッピング(ホストからRailsにアクセスするため)
+    ports:
+      - 3000:3000
+    # backendコンテナはdbコンテナに依存 (backendコンテナはdbコンテナが起動した後でないと起動しない)
+    depends_on:
+      - db
+    # 以下の両方をtrueにすると、コンテナが起動した後にコンテナの標準入力を受け付ける
+    tty: true
+    stdin_open: true
+
+# ボリュームの作成
+volumes:
+  db_data:
