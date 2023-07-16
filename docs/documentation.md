@@ -214,10 +214,89 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>ER図</h3></summary>
 
+![ER図](./img/ER_diagram/er_diagram1.0.png)
+
+- [エンティティ定義について詳細](ER_diagram.md)
+- [患者テーブルとユーザーテーブルについて(検討中)](reference.md)
+
 </details>
 
 <details>
 <summary><h3>テーブル定義書</h3></summary>
+
+- **Patientsテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+
+- **Usersテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| patient_id | INTEGER | Foreign | NO | -  | - |
+| password | VARCHAR(255) | - | NO | - | - |
+| email | VARCHAR(255) | Unique | NO | - | - |
+| name | VARCHAR(255) | - | NO | - | - |
+| type | INTEGER | - | NO | - | ※１ |
+| message_notice | BOOLEAN | - | NO | true | - |
+| medication_notice | BOOLEAN | - | NO | true | - |
+
+※１：ユーザーの種類を示す。1は「患者」、2は「家族」、3は「医師」、4は「看護師」、5は「ケアマネジャー」
+
+- **Messagesテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| user_id | INTEGER | Foreign | NO | -  | - |
+| patient_id | INTEGER | Foreign | NO | -  | - |
+| content | TEXT | - | NO | - | - |
+| image | BLOB | - | YES | - | - |
+| timestamp | DATETIME | - | NO | - | - |
+
+- **Stampsテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| message_id | INTEGER | Foreign | NO | -  | - |
+| user_id | INTEGER | Foreign | NO | -  | - |
+| type | INTEGER | - | NO | -  | ※２ |
+
+※２：スタンプの種類を示す。1は「いいね」、2は「ありがとう」、3は「お疲れ様」、4は「了解」、5は「ごめん」
+
+- **Medicationsテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| patient_id | INTEGER | Foreign | NO | -  | - |
+| name | VARCHAR(255) | Unique | NO | - | - |
+| dosage | VARCHAR(30) | - | NO | - | - |
+| start_date | DATE | - | NO | - | - |
+| end_date | DATE | - | NO | - | - |
+| memo | TEXT | - | YES | - | - |
+
+- **Schedulesテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| medication_id | INTEGER | Foreign | NO | -  | - |
+| time | TIME | - | NO | - | - |
+
+- **Recordsテーブル**
+
+| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
+|:--------|:-------:|:---:|:----:|:-----:|:----:|
+| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| schedule_id | INTEGER | Foreign | NO | -  | - |
+| date | DATE | - | NO | - | - |
+| confirmation | BOOLEAN | - | NO | 0 | ※３ |
+
+※３：服用チェックを示す。0は「未チェック」、1は「チェック済み」
 
 </details>
 
@@ -230,5 +309,6 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <summary><h3>参考内容</h3></summary>
 
 - [フィードバック](feedback.md)
+
 
 </details>
