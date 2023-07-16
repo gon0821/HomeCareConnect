@@ -302,8 +302,29 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 ### システム構成図
 
+![システム構成図](./img/system_configuration_diagram/system_configuration_diagram1.0.png)
 
 ### 使用技術
+
+- バックエンド
+  - Ruby
+  - Ruby on Rails
+
+- フロントエンド
+  - HTML/CSS
+  - JavaScript
+
+- データベース
+  - MySQL
+
+- 環境構築/インフラ
+  - Docker
+  - AWS
+
+- その他
+  - Rubocop（静的解析ツール）
+  - RSpec（テストフレームワーク）
+  - GitHub Actions（CI/CD）
 
 <details>
 <summary><h3>参考内容</h3></summary>
