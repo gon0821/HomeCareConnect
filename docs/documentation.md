@@ -307,15 +307,15 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 ### 使用技術
 
 - バックエンド
-  - Ruby
-  - Ruby on Rails
+  - Ruby 3.2.2
+  - Ruby on Rails 7.0.6
 
 - フロントエンド
   - HTML/CSS
   - JavaScript
 
 - データベース
-  - MySQL
+  - MySQL 8.0.33
 
 - 環境構築/インフラ
   - Docker
