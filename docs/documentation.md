@@ -108,7 +108,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 - チャット機能
   - リアルタイムでメッセージができる。
   - 画像を投稿できるようにする。
-  - スタンプやリアクション機能
+  - スタンプやリアクション機能（Advanced）
   - 通知を設定できる。(Advanced)
   - スレッド機能（Advanced）
 
@@ -214,7 +214,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>ER図</h3></summary>
 
-![ER図](./img/ER_diagram/er_diagram1.0.png)
+![ER図](./img/ER_diagram/er_diagram1.1.png)
 
 - [エンティティ定義について詳細](ER_diagram.md)
 - [患者テーブルとユーザーテーブルについて(検討中)](reference.md)
@@ -251,21 +251,8 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 |:--------|:-------:|:---:|:----:|:-----:|:----:|
 | id | INTEGER | Primary | NO | - | AUTO INCREMENT |
 | user_id | INTEGER | Foreign | NO | -  | - |
-| patient_id | INTEGER | Foreign | NO | -  | - |
 | content | TEXT | - | NO | - | - |
-| image | BLOB | - | YES | - | - |
 | timestamp | DATETIME | - | NO | - | - |
-
-- **Stampsテーブル**
-
-| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
-|:--------|:-------:|:---:|:----:|:-----:|:----:|
-| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
-| message_id | INTEGER | Foreign | NO | -  | - |
-| user_id | INTEGER | Foreign | NO | -  | - |
-| type | INTEGER | - | NO | -  | ※２ |
-
-※２：スタンプの種類を示す。1は「いいね」、2は「ありがとう」、3は「お疲れ様」、4は「了解」、5は「ごめん」
 
 - **Medicationsテーブル**
 
@@ -286,14 +273,6 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 | id | INTEGER | Primary | NO | - | AUTO INCREMENT |
 | medication_id | INTEGER | Foreign | NO | -  | - |
 | time | TIME | - | NO | - | - |
-
-- **Recordsテーブル**
-
-| カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
-|:--------|:-------:|:---:|:----:|:-----:|:----:|
-| id | INTEGER | Primary | NO | - | AUTO INCREMENT |
-| schedule_id | INTEGER | Foreign | NO | -  | - |
-| date | DATE | - | NO | - | - |
 | confirmation | BOOLEAN | - | NO | 0 | ※３ |
 
 ※３：服用チェックを示す。0は「未チェック」、1は「チェック済み」
