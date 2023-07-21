@@ -35,7 +35,9 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.select :role, ['patient', 'family', 'doctor', 'nurse', 'care_manager'] %>
+    <%= f.select :role, [['患者', 'patient'], ['家族', 'family'], ['医師', 'doctor'], ['看護師', 'nurse'], ['ケアマネージャー', 'care_manager']] %>
+
+
   </div>
 
   <div class="field">

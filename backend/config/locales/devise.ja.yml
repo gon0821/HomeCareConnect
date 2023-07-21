@@ -14,7 +14,7 @@ ja:
         name: 名前
         role: ユーザータイプ
         secret_patient_id: 患者ID
-        
+
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
