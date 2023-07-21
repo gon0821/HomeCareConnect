@@ -96,12 +96,14 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 - 認証機能
   - ユーザー登録
     - ユーザーID、パスワード、名前、メールアドレス、ユーザータイプが登録できる。
-    - ログイン中のユーザーが別のユーザーを登録できる。
-    - 患者本人が始めにユーザー登録し、参加してほしい人をユーザー登録し、IDとパスワードを伝える形式を取る。
+    - ユーザータイプ「患者」以外を選んだ場合は、「患者ID」を入力しないと新規登録できない
+    - 患者本人が始めにユーザー登録し、参加してほしい人には「患者ID」を伝える形式を取る。
   - ログイン
     - ユーザーID、パスワードを入力し、ログインできる。
   - ログアウト
     - メニュー画面より選択し、ログアウトできる。
+  - ユーザー情報更新
+    - パスワード、メールアドレスのみは変更できる。
   - ユーザーID,パスワード以外でのログイン
     - ユーザーID、パスワードを忘れた場合は、メールアドレスより取得できる。
 
@@ -154,7 +156,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
   <details>
   <summary><h4>認証機能</h4></summary>
 
-  ![認証機能](./img/workflow_diagram/login_user.jpg)
+  ![認証機能](./img/workflow_diagram/login_user_1.1.jpg)
 
   </details>
 
@@ -170,7 +172,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>画面遷移図</h3></summary>
 
-![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram3.jpg)
+![画面遷移図](./img/screen_transition_diagram/screen_transition_diagram4.jpeg)
 
 </details>
 
@@ -180,7 +182,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
   <details>
   <summary><h4>ユーザー登録、ログイン機能</h4></summary>
 
-  ![ユーザー登録、ログイン機能](./img/wire_frame/login_user.jpeg)
+  ![ユーザー登録、ログイン機能](./img/wire_frame/login_user_1.1.jpeg)
 
   </details>
 
@@ -201,9 +203,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
   <details>
   <summary><h4>メニュー機能</h4></summary>
 
-  ![メニュー機能1](./img/wire_frame/menu_list1.jpeg)
-  ![メニュー機能2](./img/wire_frame/menu_list2.jpeg)
-
+  ![メニュー機能1](./img/wire_frame/menu_list_1.1.jpeg)
 
   </details>
 
@@ -214,7 +214,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>ER図</h3></summary>
 
-![ER図](./img/ER_diagram/er_diagram1.1.png)
+![ER図](./img/ER_diagram/er_diagram1.2.png)
 
 - [エンティティ定義について詳細](ER_diagram.md)
 - [患者テーブルとユーザーテーブルについて(検討中)](reference.md)
@@ -229,21 +229,24 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 | カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
 |:--------|:-------:|:---:|:----:|:-----:|:----:|
 | id | INTEGER | Primary | NO | - | AUTO INCREMENT |
+| secret_id | String | Unique | NO | - | ランダムな文字列 |
 
 - **Usersテーブル**
 
 | カラム名 | データ型 | キー | NULL | 初期値 | 備考 |
 |:--------|:-------:|:---:|:----:|:-----:|:----:|
 | id | INTEGER | Primary | NO | - | AUTO INCREMENT |
-| patient_id | INTEGER | Foreign | NO | -  | - |
+| secret_patient_id | String | Foreign | NO | -  | ※１|
 | password | VARCHAR(255) | - | NO | - | - |
-| email | VARCHAR(255) | Unique | NO | - | - |
 | name | VARCHAR(255) | - | NO | - | - |
-| type | INTEGER | - | NO | - | ※１ |
+| email | VARCHAR(255) | Unique | NO | - | - |
+| role | String | - | NO | - | ※２ |
 | message_notice | BOOLEAN | - | NO | true | - |
 | medication_notice | BOOLEAN | - | NO | true | - |
 
-※１：ユーザーの種類を示す。1は「患者」、2は「家族」、3は「医師」、4は「看護師」、5は「ケアマネジャー」
+※１：外部キー制約はPatientsテーブルのsecret_idカラムから設定
+
+※２：ユーザーの種類を示す。「患者」「家族」「医師」「看護師」「ケアマネジャー」より選択する。
 
 - **Messagesテーブル**
 
