@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # 患者以外登録時にはpatient_idが必須になる
   def secret_patient_id_presence
     if role != 'patient' && patient.nil?
-      errors.add(:secret_patient_id, '患者IDは必須です')
+      errors.add(:secret_patient_id, 'は必須です')
     end
   end
 end
