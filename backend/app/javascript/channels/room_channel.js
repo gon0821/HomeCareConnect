@@ -2,11 +2,9 @@ import consumer from "channels/consumer"
 
 const appRoom = consumer.subscriptions.create("RoomChannel", {
   connected() {
-
   },
 
   disconnected() {
-
   },
 
   received(data) {

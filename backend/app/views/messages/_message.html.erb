@@ -1,3 +1,6 @@
 <div class="message">
-  <p><%= message.content %></p>
+  <p>
+    <strong><%= message.user.name %>:</strong> <%= message.content %>
+    <small><%= message.created_at.strftime("%m/%d %H:%M") %></small>
+  </p>
 </div>

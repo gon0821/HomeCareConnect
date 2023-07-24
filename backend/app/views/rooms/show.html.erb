@@ -1,4 +1,11 @@
 <h1>Chat room</h1>
+
+<% if user_signed_in? %>
+  <p>Welcome, <%= current_user.name %>!</p>
+<% else %>
+  <p>Please sign in.</p>
+<% end %>
+
 <div id ='messages'>
   <%= render @messages %>
 </div>

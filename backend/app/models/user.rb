@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   # optional: trueにより関連付けられたPatientが存在しない場合でもエラーにならないようにする（患者本人登録時）
   belongs_to :patient, primary_key: :secret_id, foreign_key: :secret_patient_id, optional: true
+
+  has_many :messages
+
   # 下記バリデーションを行うことで、患者以外登録時にはsecret_patient_idが必須になる
   validate :secret_patient_id_presence
 
