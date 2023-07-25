@@ -1,12 +1,14 @@
 <h1>Chat room</h1>
 
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
 <% if user_signed_in? %>
   <p>Welcome, <%= current_user.name %>!</p>
 <% else %>
   <p>Please sign in.</p>
 <% end %>
 
-<div id ='messages'>
+<div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>'>
   <%= render @messages %>
 </div>
 

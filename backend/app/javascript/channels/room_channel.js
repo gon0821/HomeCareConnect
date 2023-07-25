@@ -1,7 +1,10 @@
 import consumer from "channels/consumer"
 
-const appRoom = consumer.subscriptions.create("RoomChannel", {
+let secretId = document.getElementById('messages').dataset.secretId;
+
+const appRoom = consumer.subscriptions.create({channel: "RoomChannel", secret_id: secretId}, {
   connected() {
+    console.log("Connected to the channel with secretId:", secretId);
   },
 
   disconnected() {
@@ -13,7 +16,7 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
   },
 
   speak: function(message) {
-    return this.perform('speak', {message: message});
+    return this.perform('speak', { message: message, secret_id: secretId});
   }
 });
 
