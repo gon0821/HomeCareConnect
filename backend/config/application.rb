@@ -12,6 +12,8 @@ module App
     config.load_defaults 7.0
     # 日本語化
     config.i18n.default_locale = :ja
+    # タイムゾーン
+    config.time_zone = 'Tokyo'
 
     # Configuration for the application, engines, and railties goes here.
     #
