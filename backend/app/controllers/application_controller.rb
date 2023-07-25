@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    home_index_path   # 表示させたい画面へのパス
+    rooms_show_path   # 表示させたい画面へのパス
   end
 
   def after_sign_out_path_for(resource_or_scope)
