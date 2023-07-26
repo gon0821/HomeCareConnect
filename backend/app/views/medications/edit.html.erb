@@ -9,6 +9,8 @@
   </div>
 <% end %>
 
+<h1>お薬情報編集</h1>
+
 <%= form_with model: @medication do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
@@ -25,5 +27,7 @@
   <%= form.label :memo %>
   <%= form.text_area :memo %>
 
-  <%= form.submit %>
-<% end %>
+  <%= form.submit "更新" %>
+  <% end %>
+
+  <%= link_to '削除', medication_path(@medication), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか' } %>

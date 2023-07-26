@@ -21,6 +21,7 @@
         <td><%= medication.start_date %></td>
         <td><%= medication.end_date %></td>
         <td><%= medication.memo %></td>
+        <td><%= link_to '編集', edit_medication_path(medication) %></td>
       </tr>
     <% end %>
   </tbody>

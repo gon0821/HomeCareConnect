@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :medications
+  resources :medications , except: [:show]
+  
   get 'rooms/show'
   get 'home/index'
   devise_for :users, controllers: {
