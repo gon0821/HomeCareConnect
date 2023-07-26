@@ -10,6 +10,11 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Memo</th>
+      <th>Time1</th>
+      <th>Time2</th>
+      <th>Time3</th>
+      <th>Time4</th>
+      <th>Time5</th>
     </tr>
   </thead>
 
@@ -21,6 +26,11 @@
         <td><%= medication.start_date %></td>
         <td><%= medication.end_date %></td>
         <td><%= medication.memo %></td>
+        <td><%= medication.time1.strftime('%H:%M') if medication.time1.present? %></td>
+        <td><%= medication.time2.strftime('%H:%M') if medication.time2.present? %></td>
+        <td><%= medication.time3.strftime('%H:%M') if medication.time3.present? %></td>
+        <td><%= medication.time4.strftime('%H:%M') if medication.time4.present? %></td>
+        <td><%= medication.time5.strftime('%H:%M') if medication.time5.present? %></td>
         <td><%= link_to '編集', edit_medication_path(medication) %></td>
       </tr>
     <% end %>

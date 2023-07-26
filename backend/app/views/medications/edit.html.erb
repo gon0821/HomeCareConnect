@@ -1,33 +1,9 @@
-<% if @medication.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@medication.errors.count, "個") %> のエラーがあるため保存できません</h2>
-    <ul>
-      <% @medication.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <h1>お薬情報編集</h1>
 
-<%= form_with model: @medication do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+<%= render 'errors' %>
 
-  <%= form.label :dosage %>
-  <%= form.text_field :dosage %>
+<%= render 'form' %>
 
-  <%= form.label :start_date %>
-  <%= form.date_field :start_date %>
+<%= link_to '削除', medication_path(@medication), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか' } %>
 
-  <%= form.label :end_date %>
-  <%= form.date_field :end_date %>
-
-  <%= form.label :memo %>
-  <%= form.text_area :memo %>
-
-  <%= form.submit "更新" %>
-  <% end %>
-
-  <%= link_to '削除', medication_path(@medication), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか' } %>
+<%= link_to '戻る', medications_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_154405) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_094539) do
   create_table "medications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "dosage", null: false
@@ -19,6 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_154405) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "time1"
+    t.time "time2"
+    t.time "time3"
+    t.time "time4"
+    t.time "time5"
   end
 
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

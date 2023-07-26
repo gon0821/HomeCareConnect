@@ -53,6 +53,6 @@ class MedicationsController < ApplicationController
   private
   # ストロングパラメーター
   def medication_params
-    params.require(:medication).permit(:name, :dosage, :start_date, :end_date, :memo)
+    params.require(:medication).permit(:name, :dosage, :start_date, :end_date, :memo, :time1, :time2, :time3, :time4, :time5)
   end
 end
