@@ -1,0 +1,18 @@
+<%= form_with model: @medication do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :dosage %>
+  <%= form.text_field :dosage %>
+
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+
+  <%= form.label :end_date %>
+  <%= form.date_field :end_date %>
+
+  <%= form.label :memo %>
+  <%= form.text_area :memo %>
+
+  <%= form.submit %>
+<% end %>

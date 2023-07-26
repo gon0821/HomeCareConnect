@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :medications
   get 'rooms/show'
   get 'home/index'
   devise_for :users, controllers: {

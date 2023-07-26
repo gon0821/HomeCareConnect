@@ -1,0 +1,27 @@
+<h1>お薬リスト</h1>
+
+<%= link_to 'お薬追加', new_medication_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dosage</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Memo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medications.each do |medication| %>
+      <tr>
+        <td><%= medication.name %></td>
+        <td><%= medication.dosage %></td>
+        <td><%= medication.start_date %></td>
+        <td><%= medication.end_date %></td>
+        <td><%= medication.memo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
