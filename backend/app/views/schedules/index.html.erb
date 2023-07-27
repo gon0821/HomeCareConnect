@@ -1,9 +1,14 @@
-<h1><%= Date.today %>のスケジュール</h1>
+<h1><%= @date.strftime("%-m月%-d日") %>のスケジュール</h1>
 
 <%= link_to 'お薬リスト', patient_medications_path(current_patient) %>
 <%= link_to 'チャットルーム', rooms_show_path %>
+<br>
+<%= link_to '前日', patient_schedules_path(@patient, date: @date - 1.day) %>
+<%= link_to '次日', patient_schedules_path(@patient, date: @date + 1.day) %>
+
 
 <%= form_with url: update_confirmation_patient_schedules_path(@patient), method: :post do %>
+  <%= hidden_field_tag :date, @date %>
   <table>
     <thead>
       <tr>
