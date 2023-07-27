@@ -1,0 +1,9 @@
+<h1>お薬情報編集</h1>
+
+<%= render 'errors' %>
+
+<%= render 'form' %>
+
+<%= link_to '削除', patient_medication_path(@medication), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか' } %>
+
+<%= link_to '戻る', patient_medications_path(current_patient) %>

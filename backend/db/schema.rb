@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_24_160726) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_072849) do
+  create_table "medications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "dosage", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.time "time1"
+    t.time "time2"
+    t.time "time3"
+    t.time "time4"
+    t.time "time5"
+    t.string "secret_patient_id"
+    t.index ["secret_patient_id"], name: "fk_rails_24526f3789"
+  end
+
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
@@ -24,6 +41,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_160726) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["secret_id"], name: "index_patients_on_secret_id", unique: true
+  end
+
+  create_table "schedules", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "medication_id", null: false
+    t.boolean "confirmation", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "time_slot"
+    t.date "date"
+    t.index ["medication_id"], name: "index_schedules_on_medication_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -44,6 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_160726) do
     t.index ["secret_patient_id"], name: "fk_rails_2f25e98a58"
   end
 
+  add_foreign_key "medications", "patients", column: "secret_patient_id", primary_key: "secret_id"
   add_foreign_key "messages", "users"
+  add_foreign_key "schedules", "medications"
   add_foreign_key "users", "patients", column: "secret_patient_id", primary_key: "secret_id"
 end

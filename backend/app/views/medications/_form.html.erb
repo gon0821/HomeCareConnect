@@ -1,0 +1,54 @@
+<%= form_with model: [current_patient, @medication], local: true do |form| %>
+  <div>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  </div>
+
+  <div>
+  <%= form.label :dosage %>
+  <%= form.text_field :dosage %>
+  </div>
+
+  <div>
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+  </div>
+
+  <div>
+  <%= form.label :end_date %>
+  <%= form.date_field :end_date %>
+  </div>
+
+  <div>
+  <%= form.label :time1 %>
+  <%= form.time_field :time1 %>
+  </div>
+
+  <div>
+  <%= form.label :time2 %>
+  <%= form.time_field :time2 %>
+  </div>
+
+  <div>
+  <%= form.label :time3 %>
+  <%= form.time_field :time3 %>
+  </div>
+
+  <div>
+  <%= form.label :time4 %>
+  <%= form.time_field :time4 %>
+  </div>
+
+  <div>
+  <%= form.label :time5 %>
+  <%= form.time_field :time5 %>
+  </div>
+
+  <div>
+  <%= form.label :memo %>
+  <%= form.text_area :memo %>
+  </div>
+
+  <%= form.submit %>
+
+  <% end %>
