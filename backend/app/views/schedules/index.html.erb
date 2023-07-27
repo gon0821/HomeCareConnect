@@ -1,0 +1,28 @@
+<h1><%= Date.today %>のスケジュール</h1>
+
+<%= link_to 'お薬リスト', medications_path %>
+
+<%= form_with url: '/schedules/update_confirmation', method: :post do %>
+  <table>
+    <thead>
+      <tr>
+        <th>時間</th>
+        <th>薬</th>
+        <th>服用量</th>
+        <th>確認</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.medication.send("time#{schedule.time_slot}").strftime('%H:%M') %></td>
+          <td><%= schedule.medication.name %></td>
+          <td><%= schedule.medication.dosage %></td>
+          <td><%= check_box_tag "schedules[]", schedule.id, schedule.confirmation %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= submit_tag "更新" %>
+<% end %>
