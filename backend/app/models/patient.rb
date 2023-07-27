@@ -4,6 +4,8 @@ class Patient < ApplicationRecord
   # Patientモデルのインスタンスが生成される前に、generate_patient_idメソッドを実行する
   before_create :generate_secret_id
 
+  has_many :medications, foreign_key: :secret_patient_id, primary_key: :secret_id, dependent: :destroy
+
   private
 
   # ランダムな文字列を生成して、secret_idに代入する

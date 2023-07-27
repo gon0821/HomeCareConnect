@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  resources :medications, except: [:show]
-  resources :schedules, only: [:index]
 
-  post '/schedules/update_confirmation', to: 'schedules#update_confirmation'
+  resources :patients do
+    resources :medications, except: [:show]
+    resources :schedules, only: [:index] do
+      post :update_confirmation, on: :collection
+    end
+  end
+  # resources :medications, except: [:show]
+  # resources :schedules, only: [:index]
+
+  # post '/schedules/update_confirmation', to: 'schedules#update_confirmation'
 
   get 'rooms/show'
   get 'home/index'

@@ -1,7 +1,8 @@
 <h1>お薬リスト</h1>
 
-<%= link_to 'お薬追加', new_medication_path %>
-<%= link_to 'スケジュール', schedules_path %>
+<%= link_to 'お薬追加', new_patient_medication_path(current_patient) %>
+<%= link_to 'スケジュール', patient_schedules_path(current_patient) %>
+<%= link_to 'チャットルーム', rooms_show_path %>
 
 <table>
   <thead>
@@ -32,7 +33,7 @@
         <td><%= medication.time3.strftime('%H:%M') if medication.time3.present? %></td>
         <td><%= medication.time4.strftime('%H:%M') if medication.time4.present? %></td>
         <td><%= medication.time5.strftime('%H:%M') if medication.time5.present? %></td>
-        <td><%= link_to '編集', edit_medication_path(medication) %></td>
+        <td><%= link_to '編集', edit_patient_medication_path(current_patient, medication) %></td>
       </tr>
     <% end %>
   </tbody>

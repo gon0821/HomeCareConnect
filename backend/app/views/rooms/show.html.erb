@@ -7,6 +7,8 @@
   <p>Please sign in.</p>
 <% end %>
 
+<%= link_to '服用スケジュール', patient_schedules_path(current_patient)  %>
+<%= link_to 'お薬リスト', patient_medications_path(current_patient) %>
 
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 

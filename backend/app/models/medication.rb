@@ -1,9 +1,11 @@
 class Medication < ApplicationRecord
   has_many :schedules, dependent: :destroy
 
+  belongs_to :patient, foreign_key: :secret_patient_id, primary_key: :secret_id
+
   after_create :create_schedules
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :dosage, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true

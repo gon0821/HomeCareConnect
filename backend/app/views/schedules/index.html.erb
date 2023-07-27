@@ -1,8 +1,9 @@
 <h1><%= Date.today %>のスケジュール</h1>
 
-<%= link_to 'お薬リスト', medications_path %>
+<%= link_to 'お薬リスト', patient_medications_path(current_patient) %>
+<%= link_to 'チャットルーム', rooms_show_path %>
 
-<%= form_with url: '/schedules/update_confirmation', method: :post do %>
+<%= form_with url: update_confirmation_patient_schedules_path(@patient), method: :post do %>
   <table>
     <thead>
       <tr>

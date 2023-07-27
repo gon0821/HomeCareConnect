@@ -1,16 +1,18 @@
 class MedicationsController < ApplicationController
+  #　ログインしていないユーザーをログインページに促す
+  before_action :authenticate_user!
   # データを新規作成するためのフォームを表示する
   def new
-    @medication = Medication.new
+    @medication = current_patient.medications.build
   end
 
   # データを新規作成し、DBに保存する
   def create
-    @medication = Medication.new(medication_params)
+    @medication = current_patient.medications.build(medication_params)
 
     respond_to do |format|
       if @medication.save
-        format.html {redirect_to medications_path, notice: 'お薬を登録しました'}
+        format.html {redirect_to patient_medications_path, notice: 'お薬を登録しました'}
       else
         format.html {render :new, status: :unprocessable_entity}
       end
@@ -19,21 +21,21 @@ class MedicationsController < ApplicationController
 
   # 全てのデータを取得し、一覧表示する
   def index
-    @medications = Medication.all
+    @medications = current_patient.medications
   end
 
   # 特定のデータを取得し、編集するためのフォームを表示する
   def edit
-    @medication = Medication.find(params[:id])
+    @medication = current_patient.medications.find(params[:id])
   end
 
   # データを更新する
   def update
-    @medication = Medication.find(params[:id])
+    @medication = current_patient.medications.find(params[:id])
 
     respond_to do |format|
       if @medication.update(medication_params)
-        format.html {redirect_to medications_path, notice: 'お薬情報を更新しました'}
+        format.html {redirect_to patient_medications_path, notice: 'お薬情報を更新しました'}
       else
         format.html {render :edit, status: :unprocessable_entity}
       end
@@ -42,11 +44,11 @@ class MedicationsController < ApplicationController
 
   # データを削除する
   def destroy
-    @medication = Medication.find(params[:id])
+    @medication = current_patient.medications.find(params[:id])
     @medication.destroy
 
     respond_to do |format|
-      format.html {redirect_to medications_path, notice: 'お薬を削除しました', status: :see_other}
+      format.html {redirect_to patient_medications_path, notice: 'お薬を削除しました', status: :see_other}
     end
   end
 
