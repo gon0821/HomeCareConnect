@@ -36,11 +36,16 @@
 
 - Medications（お薬）
   - ID: 個々のお薬を識別するための一意の識別子
-  - Patient ID: このお薬が関連する患者のID
+  - Secret Patient ID: このお薬が関連する患者のID
   - Name: お薬の名前
   - Dosage: 服用する量
   - Start Date: 服用開始日時
   - End Date: 服用終了日時
+  - Time1: １回目の服用時間
+  - Time2: ２回目の服用時間
+  - Time3: ３回目の服用時間
+  - Time4: ４回目の服用時間
+  - Time5: ５回目の服用時間
   - Memo: メモ
 
 - Schedules（服用スケジュール）
@@ -48,6 +53,8 @@
   - Medication ID: このスケジュールが関連するお薬のID
   - Time: 服用する時間
   - Confirmation: 服用確認、服用したかどうかを示すフラグ
+  - Time slot: 何回目の服用か
+  - Date: スケジュール日
 
 
 #### ユーザーのデータイメージ
