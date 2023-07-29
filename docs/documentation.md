@@ -214,7 +214,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 <details>
 <summary><h3>ER図</h3></summary>
 
-![ER図](./img/ER_diagram/er_diagram1.2.png)
+![ER図](./img/ER_diagram/er_diagram1.3.png)
 
 - [エンティティ定義について詳細](ER_diagram.md)
 - [患者テーブルとユーザーテーブルについて(検討中)](reference.md)
@@ -267,6 +267,11 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 | dosage | VARCHAR(30) | - | NO | - | - |
 | start_date | DATE | - | NO | - | - |
 | end_date | DATE | - | NO | - | - |
+| time1 | Time | - | YES | - | - |
+| time2 | Time | - | YES | - | - |
+| time3 | Time | - | YES | - | - |
+| time4 | Time | - | YES | - | - |
+| time5 | Time | - | YES | - | - |
 | memo | TEXT | - | YES | - | - |
 
 - **Schedulesテーブル**
@@ -277,6 +282,8 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 | medication_id | INTEGER | Foreign | NO | -  | - |
 | time | TIME | - | NO | - | - |
 | confirmation | BOOLEAN | - | NO | 0 | ※３ |
+| time_slot | INTEGER | - | NO | - | - |
+| date | DATE | - | NO | - | - |
 
 ※３：服用チェックを示す。0は「未チェック」、1は「チェック済み」
 
@@ -290,7 +297,7 @@ HomeCareConnect（在宅療養者における情報共有サービス）
 
 - バックエンド
   - Ruby 3.2.2
-  - Ruby on Rails 7.0.6
+  - Ruby on Rails 7.0.5
 
 - フロントエンド
   - HTML/CSS
