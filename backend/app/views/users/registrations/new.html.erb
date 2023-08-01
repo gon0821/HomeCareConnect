@@ -17,18 +17,18 @@
       <% end %>
 
       <div class="mb-3">
-        <%= f.label :login_id, "ログインID （4文字以上で入力してください）", class: "form-label" %><br />
-        <%= f.text_field :login_id, autofocus: true, autocomplete: "username", class: "form-control" %>
+        <%= f.label :login_id, "ログインID", class: "form-label" %><br />
+        <%= f.text_field :login_id, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "4文字以上で入力してください" %>
       </div>
 
       <div class="mb-3">
-        <%= f.label :password , "パスワード （6文字以上で入力してください）", class: "form-label"%>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <%= f.label :password , class: "form-label"%>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control",placeholder: "6文字以上で入力してください"  %>
       </div>
 
       <div class="mb-3">
-        <%= f.label :password_confirmation, class: "form-label" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <%= f.label :password_confirmation, "パスワード", class: "form-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "確認用" %>
       </div>
 
       <div class="mb-3">
