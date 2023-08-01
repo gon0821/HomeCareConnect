@@ -1,54 +1,65 @@
-<%= form_with model: [current_patient, @medication], local: true do |form| %>
-  <div>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+<%= form_with model: [current_patient, @medication], local: true, html: { class: "card p-4" } do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, "名前", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-  <%= form.label :dosage %>
-  <%= form.text_field :dosage %>
+  <div class="row mb-3">
+    <div class="col-4">
+      <%= form.label :dosage, "服用量", class: "form-label" %>
+      <%= form.text_field :dosage, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-  <%= form.label :start_date %>
-  <%= form.date_field :start_date %>
+  <div class="row mb-3">
+    <div class="col-6">
+      <%= form.label :start_date, "開始日", class: "form-label" %>
+      <%= form.date_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="col-6">
+      <%= form.label :end_date, "終了日", class: "form-label" %>
+      <%= form.date_field :end_date, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-  <%= form.label :end_date %>
-  <%= form.date_field :end_date %>
+
+  <div class="row mb-3">
+    <div class="col-4">
+      <%= form.label :time1, "時間１" %>
+      <%= form.time_field :time1, class: "form-control" %>
+    </div>
+
+    <div class="col-4">
+      <%= form.label :time2, "時間２" %>
+      <%= form.time_field :time2, class: "form-control" %>
+    </div>
+
+    <div class="col-4">
+      <%= form.label :time3, "時間３" %>
+      <%= form.time_field :time3, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-  <%= form.label :time1 %>
-  <%= form.time_field :time1 %>
+  <div class="row">
+    <div class="col-4">
+      <%= form.label :time4, "時間４" %>
+      <%= form.time_field :time4, class: "form-control" %>
+    </div>
+
+    <div class="col-4">
+      <%= form.label :time5, "時間５" %>
+      <%= form.time_field :time5, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-  <%= form.label :time2 %>
-  <%= form.time_field :time2 %>
+  <div class="mb-3 mt-3">
+    <%= form.label :memo, "メモ", class: "form-label" %>
+    <%= form.text_area :memo, class: "form-control" %>
   </div>
 
-  <div>
-  <%= form.label :time3 %>
-  <%= form.time_field :time3 %>
+  <div class="mb-3">
+    <%= form.submit "登録", class: "btn btn-primary w-100" %>
   </div>
 
-  <div>
-  <%= form.label :time4 %>
-  <%= form.time_field :time4 %>
-  </div>
-
-  <div>
-  <%= form.label :time5 %>
-  <%= form.time_field :time5 %>
-  </div>
-
-  <div>
-  <%= form.label :memo %>
-  <%= form.text_area :memo %>
-  </div>
-
-  <%= form.submit %>
-
-  <% end %>
+<% end %>

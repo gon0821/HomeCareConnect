@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    attributes:
+      medication:
+        name: "名前"
+        dosage: "服用量"
+        start_date: "開始日"
+        end_date: "終了日"
+    errors:
+      models:
+        medication:
+          attributes:
+            name:
+              blank: "を入力してください"
+            dosage:
+              blank: "を入力してください"
+            start_date:
+              blank: "を入力してください"
+            end_date:
+              blank: "を入力してください"

@@ -1,6 +1,6 @@
 <% if @medication.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@medication.errors.count, "個") %> のエラーがあるため保存できません</h2>
+  <div id="error_explanation" class="alert alert-danger">
+    <h2><%= pluralize(@medication.errors.count, "個") %> のエラーがあるため登録できません</h2>
     <ul>
       <% @medication.errors.full_messages.each do |message| %>
         <li><%= message %></li>
