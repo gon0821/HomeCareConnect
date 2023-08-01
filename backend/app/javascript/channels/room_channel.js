@@ -17,7 +17,7 @@ document.addEventListener("turbo:load", function(){
 
           received(data) {
             const messages = document.getElementById('messages');
-            messages.insertAdjacentHTML('beforeend', data['message']);
+            messages.insertAdjacentHTML('afterbegin', data['message']);
           },
 
           speak: function(message) {

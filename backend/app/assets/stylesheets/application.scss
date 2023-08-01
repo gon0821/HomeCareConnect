@@ -19,11 +19,20 @@ html, body {
   height: 100%;
 }
 
-.container {
-  min-height: 100vh;
-}
 
 .bg-lightblue {
   background-color: #BAD3FF;
   min-height: 100vh;
+}
+
+.fixed-bottom-form {
+  position: fixed;
+  bottom: 0;
+  width: 50%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.my-bg-color {
+  background-color: #f0fff0;
 }
