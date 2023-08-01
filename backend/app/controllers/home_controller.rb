@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+
   def index
-    @secret_patient_id = current_user.secret_patient_id if user_signed_in?
+  end
+
+  def show
+    @user = current_user
   end
 end

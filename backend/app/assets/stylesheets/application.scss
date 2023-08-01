@@ -14,3 +14,16 @@
  *= require_self
  */
 @import "bootstrap";
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.bg-lightblue {
+  background-color: #BAD3FF;
+  min-height: 100vh;
+}
