@@ -1,9 +1,78 @@
-<h1>お薬情報編集</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h3 class="text-center mb-3">お薬情報編集</h3>
 
-<%= render 'errors' %>
+      <%= render 'errors' %>
 
-<%= render 'form' %>
+      <%= form_with model: [current_patient, @medication], local: true, html: { class: "card p-4" } do |form| %>
+        <div class="mb-3">
+          <%= form.label :name, "名前", class: "form-label" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
 
-<%= link_to '削除', patient_medication_path(@medication), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか' } %>
+        <div class="row mb-3">
+          <div class="col-4">
+            <%= form.label :dosage, "服用量", class: "form-label" %>
+            <%= form.text_field :dosage, class: "form-control" %>
+          </div>
+        </div>
 
-<%= link_to '戻る', patient_medications_path(current_patient) %>
+        <div class="row mb-3">
+          <div class="col-6">
+            <%= form.label :start_date, "開始日", class: "form-label" %>
+            <%= form.date_field :start_date, class: "form-control" %>
+          </div>
+
+          <div class="col-6">
+            <%= form.label :end_date, "終了日", class: "form-label" %>
+            <%= form.date_field :end_date, class: "form-control" %>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-4">
+            <%= form.label :time1, "時間１" %>
+            <%= form.time_field :time1, class: "form-control" %>
+          </div>
+
+          <div class="col-4">
+            <%= form.label :time2, "時間２" %>
+            <%= form.time_field :time2, class: "form-control" %>
+          </div>
+
+          <div class="col-4">
+            <%= form.label :time3, "時間３" %>
+            <%= form.time_field :time3, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <%= form.label :time4, "時間４" %>
+            <%= form.time_field :time4, class: "form-control" %>
+          </div>
+
+          <div class="col-4">
+            <%= form.label :time5, "時間５" %>
+            <%= form.time_field :time5, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="mb-3 mt-3">
+          <%= form.label :memo, "メモ", class: "form-label" %>
+          <%= form.text_area :memo, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.submit "更新", class: "btn btn-primary w-100" %>
+        </div>
+
+        <div class="mb-3">
+          <%= link_to '削除', patient_medication_path(@medication), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか' },class: "btn btn-danger w-100" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

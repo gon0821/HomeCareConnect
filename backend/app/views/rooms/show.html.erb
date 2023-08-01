@@ -1,24 +1,21 @@
-<h1>Chat room</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h3 class="text-center mb-2">Chat Room</h3>
+      <div class="card">
+        <div class="card-body">
+          <div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>'>
+            <%= render @messages %>
+          </div>
+        </div>
+      </div>
 
-<% if user_signed_in? %>
-  <p>Welcome, <%= current_user.name %>!</p>
-  <p>あなたの Secret Patient ID: <%= current_user.secret_patient_id %></p>
-<% else %>
-  <p>Please sign in.</p>
-<% end %>
-
-<%= link_to '服用スケジュール', patient_schedules_path(current_patient)  %>
-<%= link_to 'お薬リスト', patient_medications_path(current_patient) %>
-
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-
-<div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>'>
-  <%= render @messages %>
+      <form id="new_message" class="mt-5 fixed-bottom-form">
+        <div class="form-group d-flex">
+          <textarea id="message_content" data-behavior="room_speaker" class="form-control me-2 flex-grow-1" rows="2"></textarea>
+          <input type="submit" value="送信" class="btn btn-success ml-3">
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-
-<form id="new_message">
-  <div>【入力欄】</div><br>
-  <textarea id="message_content" data-behavior="room_speaker" row="5" cols="30"></textarea>
-  <input type="submit" value="Send">
-</form>
-

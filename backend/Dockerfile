@@ -1,6 +1,10 @@
 # ベースとなるDockerイメージ指定
 FROM --platform=linux/x86_64 ruby:3.2
 
+# Node.jsをインストールする
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+  apt-get install -y nodejs
+
 # 作業ディレクトリの作成、設定
 RUN mkdir /app
 WORKDIR /app

@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   has_many :messages
 
+  validates :login_id, presence: true, uniqueness: true, length: { minimum: 4 }
+  validates :name, presence: true
+
   # 下記バリデーションを行うことで、患者以外登録時にはsecret_patient_idが必須になる
   validate :secret_patient_id_presence
 

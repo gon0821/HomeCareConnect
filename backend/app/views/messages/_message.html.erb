@@ -1,6 +1,10 @@
-<div class="message">
-  <p>
-    <strong><%= message.user.name %>:</strong> <%= message.content %>
-    <small><%= message.created_at.strftime("%m/%d %H:%M") %></small>
-  </p>
+<div class="message mb-2">
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        <strong><%= message.user.name %>:</strong> <%= message.content %>
+        <small class="text-muted"><%= message.created_at.strftime("%m/%d %H:%M") %></small>
+      </p>
+    </div>
+  </div>
 </div>

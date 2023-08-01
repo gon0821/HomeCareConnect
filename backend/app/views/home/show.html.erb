@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>ユーザー情報</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>ユーザーID:</strong> <%= @user.login_id %></p>
+      <p><strong>ユーザー名:</strong> <%= @user.name %></p>
+      <p><strong>メールアドレス:</strong> <%= @user.email %></p>
+      <p><strong>ユーザータイプ:</strong> <%= role_in_japanese(@user.role) %></p>
+      <p><strong>患者ID:</strong> <%= @user.secret_patient_id %></p>
+      <p class="text-muted">パスワードはセキュリティ上表示されません。</p>
+    </div>
+  </div>
+</div>

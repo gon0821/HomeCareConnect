@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+html, body {
+  height: 100%;
+}
+
+
+.bg-lightblue {
+  background-color: #BAD3FF;
+  min-height: 100vh;
+}
+
+.fixed-bottom-form {
+  position: fixed;
+  bottom: 0;
+  width: 50%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+

@@ -1,54 +1,103 @@
-<h2>新規登録</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+    <h4 class="text-center mb-3">新規登録</h4>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "card p-4" }) do |f| %>
 
-  <div class="field">
-    <%= f.label :login_id %><br />
-    <%= f.text_field :login_id, autofocus: true, autocomplete: "username" %>
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger">
+          <strong><%= pluralize(resource.errors.count, "件") %> のエラーが発生したため登録できませんでした</strong>
+          <ul>
+          <% resource.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= f.label :login_id, "ログインID", class: "form-label" %><br />
+        <%= f.text_field :login_id, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "4文字以上で入力してください" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password , class: "form-label"%>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control",placeholder: "6文字以上で入力してください"  %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password_confirmation, "パスワード", class: "form-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "確認用" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label" %><br />
+        <%= f.text_field :name, autocomplete: "name", class: "form-control" %>
+      </div>
+
+
+      <div class="mb-3">
+        <%= f.label :email, class: "form-label" %><br />
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+      </div>
+
+
+      <div class="mb-3">
+        <%= f.label :role, class: "form-label" %><br />
+        <%= f.select :role, [['患者', 'patient'], ['家族', 'family'], ['医師', 'doctor'], ['看護師', 'nurse'], ['ケアマネージャー', 'care_manager']], {}, {class: "form-select"}  %>
+
+
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :secret_patient_id, class: "form-label" %><br />
+        <%= f.text_field :secret_patient_id, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.submit "新規登録", class: "btn btn-primary w-100"  %>
+      </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+<script>
+document.addEventListener('turbo:load', function() {
+  const roleSelect = document.querySelector('#user_role');
+  const patientIdInput = document.querySelector('#user_secret_patient_id');
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  // 初期値に基づいて、患者IDの入力フィールドを無効にするかどうかを決定する関数
+  const setPatientIdInputStatus = () => {
+    if (roleSelect.value === 'patient') {
+      patientIdInput.setAttribute('disabled', 'disabled');
+      patientIdInput.value = '';
+    } else {
+      patientIdInput.removeAttribute('disabled');
+    }
+  }
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "name" %>
-  </div>
+  // ページ読み込み時と役職の選択が変わったときに、患者IDの入力フィールドの状態を設定
+  setPatientIdInputStatus();
+  roleSelect.addEventListener('change', setPatientIdInputStatus);
+});
 
+document.addEventListener('turbo:render', function() {
+  const roleSelect = document.querySelector('#user_role');
+  const patientIdInput = document.querySelector('#user_secret_patient_id');
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+  const setPatientIdInputStatus = () => {
+    if (roleSelect.value === 'patient') {
+      patientIdInput.setAttribute('disabled', 'disabled');
+      patientIdInput.value = '';
+    } else {
+      patientIdInput.removeAttribute('disabled');
+    }
+  }
 
+  setPatientIdInputStatus();
+  roleSelect.addEventListener('change', setPatientIdInputStatus);
+});
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role, [['患者', 'patient'], ['家族', 'family'], ['医師', 'doctor'], ['看護師', 'nurse'], ['ケアマネージャー', 'care_manager']] %>
-
-
-  </div>
-
-  <div class="field">
-    <%= f.label :secret_patient_id %><br />
-    <%= f.text_field :secret_patient_id %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</script>

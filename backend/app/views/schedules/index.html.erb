@@ -1,34 +1,44 @@
-<h1><%= @date.strftime("%-m月%-d日") %>のスケジュール</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="text-center mb-3"><%= @date.strftime("%-m月%-d日") %>のスケジュール</h2>
 
-<%= link_to 'お薬リスト', patient_medications_path(current_patient) %>
-<%= link_to 'チャットルーム', rooms_show_path %>
-<br>
-<%= link_to '前日', patient_schedules_path(@patient, date: @date - 1.day) %>
-<%= link_to '次日', patient_schedules_path(@patient, date: @date + 1.day) %>
+      <div class="d-flex justify-content-between mb-3">
+        <%= link_to '前の日', patient_schedules_path(@patient, date: @date - 1.day), class: "btn btn-info me-2" %>
+        <%= link_to '次の日', patient_schedules_path(@patient, date: @date + 1.day), class: "btn btn-info" %>
+      </div>
 
+      <%= form_with url: update_confirmation_patient_schedules_path(@patient), method: :post, html: { class: "card p-4" } do %>
+        <%= hidden_field_tag :date, @date %>
 
-<%= form_with url: update_confirmation_patient_schedules_path(@patient), method: :post do %>
-  <%= hidden_field_tag :date, @date %>
-  <table>
-    <thead>
-      <tr>
-        <th>時間</th>
-        <th>薬</th>
-        <th>服用量</th>
-        <th>確認</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @schedules.each do |schedule| %>
-        <tr>
-          <td><%= schedule.medication.send("time#{schedule.time_slot}").strftime('%H:%M') %></td>
-          <td><%= schedule.medication.name %></td>
-          <td><%= schedule.medication.dosage %></td>
-          <td><%= check_box_tag "schedules[]", schedule.id, schedule.confirmation %></td>
-        </tr>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>時間</th>
+                <th>薬</th>
+                <th>服用量</th>
+                <th>確認</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @schedules.each do |schedule| %>
+                <tr>
+                  <td><%= schedule.medication.send("time#{schedule.time_slot}").strftime('%H:%M') %></td>
+                  <td><%= schedule.medication.name %></td>
+                  <td><%= schedule.medication.dosage %></td>
+                  <td><%= check_box_tag "schedules[]", schedule.id, schedule.confirmation %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mb-3">
+          <%= submit_tag "更新", class: "btn btn-primary w-100" %>
+        </div>
+
       <% end %>
-    </tbody>
-  </table>
-
-  <%= submit_tag "更新" %>
-<% end %>
+    </div>
+  </div>
+</div>
