@@ -4,14 +4,23 @@
     <h2 class="text-center mb-3">ユーザー設定</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "card p-4" }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger">
+          <strong><%= pluralize(resource.errors.count, "件") %> のエラーが発生したため登録できませんでした</strong>
+          <ul>
+          <% resource.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
       <div class="mb-3">
-        <%= f.label :current_password , "現在のパスワード （変更には現在のパスワードが必要です）", class: "form-label" %> <br />
+        <%= f.label :current_password , "現在のパスワード （変更する場合は必要です）", class: "form-label" %> <br />
         <%= f.password_field :current_password, autofocus: true, autocomplete: "current-password", class: "form-control"%>
       </div>
 
