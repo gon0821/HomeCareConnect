@@ -71,6 +71,11 @@ group :test do
   gem "webdrivers"
 end
 
+# 本番環境
+group :production do
+  gem 'unicorn'
+end
+
 # .envが使えるようにする
 gem 'dotenv-rails', groups: [:development, :test]
 
