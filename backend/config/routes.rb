@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # post '/schedules/update_confirmation', to: 'schedules#update_confirmation'
 
   get 'rooms/show'
+
+  root 'home#index'
   get 'home/index'
   get 'home/show'
   devise_for :users, controllers: {
