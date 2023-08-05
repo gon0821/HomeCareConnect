@@ -1,28 +1,30 @@
-<h3>お薬リスト</h3>
+<div class="container mt-5 mb-5">
+  <h3>お薬リスト</h3>
 
-<%= link_to 'お薬追加', new_patient_medication_path(current_patient), class: 'btn btn-primary mb-3' %>
-<%= link_to 'スケジュール', patient_schedules_path(current_patient), class: 'btn btn-secondary mb-3 ml-2' %>
+  <%= link_to 'お薬追加', new_patient_medication_path(current_patient), class: 'btn btn-primary mb-3' %>
+  <%= link_to 'スケジュール', patient_schedules_path(current_patient), class: 'btn btn-secondary mb-3 ml-2' %>
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-  <% @medications.each do |medication| %>
-    <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title"><%= medication.name %></h5>
-          <p class="card-text">服用量: <%= medication.dosage %></p>
-          <p class="card-text">開始日: <%= medication.start_date %></p>
-          <p class="card-text">終了日: <%= medication.end_date %></p>
-          <p class="card-text">時間１: <%= medication.time1.strftime('%H:%M') if medication.time1.present? %></p>
-          <p class="card-text">時間２: <%= medication.time2.strftime('%H:%M') if medication.time2.present? %></p>
-          <p class="card-text">時間３: <%= medication.time3.strftime('%H:%M') if medication.time3.present? %></p>
-          <p class="card-text">時間４: <%= medication.time4.strftime('%H:%M') if medication.time4.present? %></p>
-          <p class="card-text">時間５: <%= medication.time5.strftime('%H:%M') if medication.time5.present? %></p>
-          <p class="card-text">メモ: <%= medication.memo %></p>
-        </div>
-        <div class="card-footer">
-          <%= link_to '編集', edit_patient_medication_path(current_patient, medication), class: 'btn btn-primary' %>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <% @medications.each do |medication| %>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><%= medication.name %></h5>
+            <p class="card-text">服用量: <%= medication.dosage %></p>
+            <p class="card-text">開始日: <%= medication.start_date %></p>
+            <p class="card-text">終了日: <%= medication.end_date %></p>
+            <p class="card-text">時間１: <%= medication.time1.strftime('%H:%M') if medication.time1.present? %></p>
+            <p class="card-text">時間２: <%= medication.time2.strftime('%H:%M') if medication.time2.present? %></p>
+            <p class="card-text">時間３: <%= medication.time3.strftime('%H:%M') if medication.time3.present? %></p>
+            <p class="card-text">時間４: <%= medication.time4.strftime('%H:%M') if medication.time4.present? %></p>
+            <p class="card-text">時間５: <%= medication.time5.strftime('%H:%M') if medication.time5.present? %></p>
+            <p class="card-text">メモ: <%= medication.memo %></p>
+          </div>
+          <div class="card-footer">
+            <%= link_to '編集', edit_patient_medication_path(current_patient, medication), class: 'btn btn-primary' %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

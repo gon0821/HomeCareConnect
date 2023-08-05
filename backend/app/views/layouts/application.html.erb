@@ -46,9 +46,7 @@
 
         <div class="col-9">
           <!-- deviseのflashメッセージを表示する -->
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-
+          <%= render 'layouts/flash_messages' %>
           <!-- ここに各ビューが表示される -->
           <%= yield %>
         </div>

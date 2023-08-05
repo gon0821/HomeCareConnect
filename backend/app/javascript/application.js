@@ -4,3 +4,5 @@ import "controllers"
 import "channels"
 import "bootstrap"
 import "@fortawesome/fontawesome-free"
+
+import "flash_message"
