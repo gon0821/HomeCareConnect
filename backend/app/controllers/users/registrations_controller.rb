@@ -62,6 +62,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params.require(:user).permit(:login_id, :name, :email, :password, :password_confirmation, :role, :secret_patient_id)
     end
 
+    def after_update_path_for(resource)
+      edit_user_registration_path # ユーザー情報更新後にリダイレクトするパスを指定
+    end
+    
   # GET /resource/edit
   # def edit
   #   super
