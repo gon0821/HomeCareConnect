@@ -79,6 +79,11 @@ html, body {
   transform: translateY(0);   /* 元の位置に */
 }
 
+.large-text-area {  // メモ欄
+  height: 100px;
+  overflow-y: auto; /* 縦方向のスクロールバーの表示 */
+}
+
 // 薬一覧画面
 .time-label {
   display: inline-block;
@@ -86,4 +91,13 @@ html, body {
   margin: 3px;
   background-color: #c7eafb;
   border-radius: 5px;
+}
+
+.memo-content {
+  background-color: hsl(81, 64%, 96%);
+  padding: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  word-wrap: break-word; /* 単語の折り返し */
 }

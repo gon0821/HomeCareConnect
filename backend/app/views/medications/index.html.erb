@@ -18,7 +18,10 @@
                 <span class="time-label"><%= time.strftime('%H:%M') %></span>
               <% end %>
             </p>
-            <p class="card-text">メモ: <%= medication.memo %></p>
+            <p class="card-text memo-toggle" style="cursor: pointer;">ロード中・・・</p>
+            <div class="memo-content" style="display: none;">
+              <%= medication.memo %>
+            </div>
           </div>
           <div class="card-footer">
             <%= link_to '編集', edit_patient_medication_path(current_patient, medication), class: 'btn btn-primary' %>
