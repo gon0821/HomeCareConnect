@@ -67,19 +67,23 @@ html, body {
 }
 
 .time-input {
-  max-height: 0;
-  /* 最初は完全に透明 */
-  opacity: 0;
-  /* Y軸方向に少し下げる */
-  transform: translateY(10px);
-  /* 透明度と位置の変化に0.5秒かける */
-  transition: opacity 0.5s, transform 0.5s;
+  max-height: 0;                             /* 最初は高さを0に */
+  opacity: 0;                                /* 最初は完全に透明 */
+  transform: translateY(10px);               /* Y軸方向に少し下げる */
+  transition: opacity 0.5s, transform 0.5s;  /* 透明度と位置の変化に0.5秒かける */
 }
 
 .time-input.visible {
   max-height: 100px;
-  /* 完全に不透明に */
-  opacity: 1;
-  /* 元の位置に */
-  transform: translateY(0);
+  opacity: 1;                 /* 完全に不透明に */
+  transform: translateY(0);   /* 元の位置に */
+}
+
+// 薬一覧画面
+.time-label {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 3px;
+  background-color: #c7eafb;
+  border-radius: 5px;
 }

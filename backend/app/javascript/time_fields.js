@@ -9,8 +9,6 @@ function timeDisplay() {
       }
     });
   });
-  // 最初の入力欄は表示
-  timeInputs[0].style.display = 'block';
 }
 
 document.addEventListener('turbo:load', timeDisplay); // ページ遷移時
