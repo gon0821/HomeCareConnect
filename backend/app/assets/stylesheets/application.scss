@@ -60,3 +60,26 @@ html, body {
     border-color: #f5c6cb;
     background: linear-gradient(to right, #f8d7da, #f2a1a6);
   }
+
+// 薬登録画面
+.label-placeholder {
+  margin-top: 24px;  // ラベル分下げる
+}
+
+.time-input {
+  max-height: 0;
+  /* 最初は完全に透明 */
+  opacity: 0;
+  /* Y軸方向に少し下げる */
+  transform: translateY(10px);
+  /* 透明度と位置の変化に0.5秒かける */
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.time-input.visible {
+  max-height: 100px;
+  /* 完全に不透明に */
+  opacity: 1;
+  /* 元の位置に */
+  transform: translateY(0);
+}

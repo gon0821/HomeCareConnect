@@ -25,31 +25,27 @@
 
 
   <div class="row mb-3">
-    <div class="col-4">
-      <%= form.label :time1, "時間１" %>
-      <%= form.time_field :time1, class: "form-control" %>
+    <div class="col-4 time-input visible">
+      <%= form.label :time1, "時間（５個までＯＫ）" %>
+      <%= form.time_field :time1, class: "form-control time-field" %>
     </div>
 
-    <div class="col-4">
-      <%= form.label :time2, "時間２" %>
-      <%= form.time_field :time2, class: "form-control" %>
+    <div class="col-4 time-input label-placeholder" >
+      <%= form.time_field :time2, class: "form-control time-field" %>
     </div>
 
-    <div class="col-4">
-      <%= form.label :time3, "時間３" %>
-      <%= form.time_field :time3, class: "form-control" %>
+    <div class="col-4 time-input label-placeholder">
+      <%= form.time_field :time3, class: "form-control time-field" %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-4">
-      <%= form.label :time4, "時間４" %>
-      <%= form.time_field :time4, class: "form-control" %>
+    <div class="col-4 time-input" >
+      <%= form.time_field :time4, class: "form-control time-field" %>
     </div>
 
-    <div class="col-4">
-      <%= form.label :time5, "時間５" %>
-      <%= form.time_field :time5, class: "form-control" %>
+    <div class="col-4 time-input" >
+      <%= form.time_field :time5, class: "form-control time-field" %>
     </div>
   </div>
 
