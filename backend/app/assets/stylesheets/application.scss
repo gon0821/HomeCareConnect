@@ -117,3 +117,41 @@ html, body {
   border: 1px solid rgb(0, 163, 245);
   background-color: rgb(132, 204, 246);
 }
+
+.schedule-cards .card {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(17, 5, 252, 0.2);
+  padding: 11px;
+  margin: 10px 0;
+}
+
+.schedule-details {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: start;
+  flex-grow: 1;
+}
+
+.time,
+.name,
+.dosage {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+.time {
+  color: #182d96;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dosage {
+  color: #182d96;
+}
