@@ -15,11 +15,6 @@ window.addEventListener('turbo:load', function () {
       success: (response) => {
         if (response.success) {
           $(this).toggleClass('confirmed');
-          if (isChecked) {
-            $(this).html('<i class="fa-solid fa-check fa-sm" style="color: #bababa;"></i>');
-          } else {
-            $(this).html('<i class="fa-solid fa-check fa-xl" style="color: #fafeff;"></i>');
-          }
         }
       },
       error: function (response) {
