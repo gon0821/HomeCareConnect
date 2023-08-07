@@ -60,3 +60,44 @@ html, body {
     border-color: #f5c6cb;
     background: linear-gradient(to right, #f8d7da, #f2a1a6);
   }
+
+// 薬登録画面
+.label-placeholder {
+  margin-top: 24px;  // ラベル分下げる
+}
+
+.time-input {
+  max-height: 0;                             /* 最初は高さを0に */
+  opacity: 0;                                /* 最初は完全に透明 */
+  transform: translateY(10px);               /* Y軸方向に少し下げる */
+  transition: opacity 0.5s, transform 0.5s;  /* 透明度と位置の変化に0.5秒かける */
+}
+
+.time-input.visible {
+  max-height: 100px;
+  opacity: 1;                 /* 完全に不透明に */
+  transform: translateY(0);   /* 元の位置に */
+}
+
+.large-text-area {  // メモ欄
+  height: 100px;
+  overflow-y: auto; /* 縦方向のスクロールバーの表示 */
+}
+
+// 薬一覧画面
+.time-label {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 3px;
+  background-color: #c7eafb;
+  border-radius: 5px;
+}
+
+.memo-content {
+  background-color: hsl(81, 64%, 96%);
+  padding: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  word-wrap: break-word; /* 単語の折り返し */
+}

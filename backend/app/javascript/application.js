@@ -4,5 +4,9 @@ import "controllers"
 import "channels"
 import "bootstrap"
 import "@fortawesome/fontawesome-free"
+import jquery from "jquery"
+window.$ = jquery
 
 import "flash_message"
+import "time_fields"
+import "memo_fields"

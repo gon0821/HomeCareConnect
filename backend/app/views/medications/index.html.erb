@@ -13,12 +13,15 @@
             <p class="card-text">服用量: <%= medication.dosage %></p>
             <p class="card-text">開始日: <%= medication.start_date %></p>
             <p class="card-text">終了日: <%= medication.end_date %></p>
-            <p class="card-text">時間１: <%= medication.time1.strftime('%H:%M') if medication.time1.present? %></p>
-            <p class="card-text">時間２: <%= medication.time2.strftime('%H:%M') if medication.time2.present? %></p>
-            <p class="card-text">時間３: <%= medication.time3.strftime('%H:%M') if medication.time3.present? %></p>
-            <p class="card-text">時間４: <%= medication.time4.strftime('%H:%M') if medication.time4.present? %></p>
-            <p class="card-text">時間５: <%= medication.time5.strftime('%H:%M') if medication.time5.present? %></p>
-            <p class="card-text">メモ: <%= medication.memo %></p>
+            <p class="card-text">時間:
+              <% [medication.time1, medication.time2, medication.time3, medication.time4, medication.time5].compact.each do |time| %>
+                <span class="time-label"><%= time.strftime('%H:%M') %></span>
+              <% end %>
+            </p>
+            <p class="card-text memo-toggle" style="cursor: pointer;">ロード中・・・</p>
+            <div class="memo-content" style="display: none;">
+              <%= medication.memo %>
+            </div>
           </div>
           <div class="card-footer">
             <%= link_to '編集', edit_patient_medication_path(current_patient, medication), class: 'btn btn-primary' %>
