@@ -105,7 +105,7 @@ html, body {
 // スケジュール画面
 .confirm-button {
   background-color: rgb(233, 233, 233);
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.2s ease;
   border: 1px solid rgb(233, 233, 233);
   border-radius: 7px;
   padding: 10px 25px;
@@ -113,8 +113,13 @@ html, body {
 }
 
 .confirm-button.confirmed {
-  border: 1px solid rgb(0, 163, 245);
-  background-color: rgb(132, 204, 246);
+  border: 1px solid rgb(43, 101, 248);
+  background-color: rgb(122, 204, 252);
+}
+
+.card-confirmed {
+  background-color: rgb(228, 243, 249);
+  transition: background-color 0.8s ease-in;
 }
 
 .schedule-cards .card {
@@ -139,7 +144,7 @@ html, body {
 .time,
 .name,
 .dosage {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0 10px;
   vertical-align: middle;
 }

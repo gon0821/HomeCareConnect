@@ -3,6 +3,7 @@ window.addEventListener('turbo:load', function () {
     var url = $(this).data('url');                     // data-url属性の値を取得
     var scheduleId = $(this).data('schedule-id');      // data-schedule-id属性のschedule.idの値を取得
     var isChecked = $(this).hasClass('confirmed');
+    var $card = $(this).closest('.card');              // ボタンの親要素であるカードを取得
 
     // Ajax通信を開始
     $.ajax({
@@ -15,6 +16,7 @@ window.addEventListener('turbo:load', function () {
       success: (response) => {
         if (response.success) {
           $(this).toggleClass('confirmed');
+          $card.toggleClass('card-confirmed');
         }
       },
       error: function (response) {
