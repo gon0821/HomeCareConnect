@@ -1,10 +1,8 @@
 window.addEventListener('turbo:load', function () {
-  // チェックボックスの状態変化を検知
-  $("input[type='checkbox'][name='schedules[]']").change(function () {
-    var url = $(this).data('url');            // 第4引数のdata-url属性の値を取得
-    var scheduleId = $(this).val();           // 第2引数のvalue属性のschedule.idの値を取得
-    var isChecked = $(this).is(':checked');   // チェック状態を取得
-    var date = $("input[name='date']").val(); // 名前属性がdateのinput要素の値を取得
+  $(".confirm-button").click(function () {
+    var url = $(this).data('url');                     // data-url属性の値を取得
+    var scheduleId = $(this).data('schedule-id');      // data-schedule-id属性のschedule.idの値を取得
+    var isChecked = $(this).hasClass('confirmed');
 
     // Ajax通信を開始
     $.ajax({
@@ -13,13 +11,18 @@ window.addEventListener('turbo:load', function () {
       },
       url: url,
       type: 'POST',
-      data: { schedule_id: scheduleId, checked: isChecked, date: date },
-      success: function (response) {
-        // 必要に応じて成功時の処理を記述
-        alert('確認状況が更新されました！');
+      data: { schedule_id: scheduleId, checked: !isChecked},
+      success: (response) => {
+        if (response.success) {
+          $(this).toggleClass('confirmed');
+          if (isChecked) {
+            $(this).html('<i class="fa-solid fa-check fa-sm" style="color: #bababa;"></i>');
+          } else {
+            $(this).html('<i class="fa-solid fa-check fa-xl" style="color: #fafeff;"></i>');
+          }
+        }
       },
       error: function (response) {
-        // 必要に応じてエラー時の処理を記述
         alert('確認状況の更新が失敗しました');
       }
     });

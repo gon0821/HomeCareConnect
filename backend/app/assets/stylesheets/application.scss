@@ -101,3 +101,19 @@ html, body {
   line-height: 1.5;
   word-wrap: break-word; /* 単語の折り返し */
 }
+
+// スケジュール画面
+.confirm-button {
+  background-color: rgb(233, 233, 233);
+  transition: background-color 0.3s ease-in-out;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.confirm-button.confirmed {
+  padding: 9px 25px;
+  border: 1px solid rgb(0, 163, 245);
+  background-color: rgb(132, 204, 246);
+}

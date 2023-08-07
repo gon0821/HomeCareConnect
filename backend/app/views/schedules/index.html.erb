@@ -12,21 +12,21 @@
 
       <div class="table-responsive">
         <table class="table">
-          <thead>
-            <tr>
-              <th>時間</th>
-              <th>薬</th>
-              <th>服用量</th>
-              <th>確認</th>
-            </tr>
-          </thead>
           <tbody>
             <% @schedules.each do |schedule| %>
               <tr>
                 <td><%= schedule.medication.send("time#{schedule.time_slot}").strftime('%H:%M') %></td>
                 <td><%= schedule.medication.name %></td>
                 <td><%= schedule.medication.dosage %></td>
-                <td><%= check_box_tag "schedules[]", schedule.id, schedule.confirmation, data: { url: update_confirmation_patient_schedules_path(@patient) } %></td>
+                <td>
+                  <button class="confirm-button <%= 'confirmed' if schedule.confirmation %>" data-schedule-id="<%= schedule.id %>" data-url="<%= update_confirmation_patient_schedules_path(@patient) %>" >
+                    <% if schedule.confirmation %>
+                      <i class="fa-solid fa-check fa-xl" style="color: #fafeff;"></i>
+                    <% else %>
+                      <i class="fa-solid fa-check fa-sm" style="color: #bababa;"></i>
+                    <% end %>
+                  </button>
+                </td>
               </tr>
             <% end %>
           </tbody>
