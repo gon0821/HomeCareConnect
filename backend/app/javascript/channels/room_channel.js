@@ -18,7 +18,18 @@ document.addEventListener("turbo:load", function(){
           received(data) {
             console.log("メッセージを受け取った", data);
             const messages = document.getElementById('messages');
-            messages.insertAdjacentHTML('afterbegin', data['message']);
+            const div = document.createElement('div');
+            div.innerHTML = data['message'];
+            const messageUserId = div.querySelector('.message').dataset.userId;
+            const currentUserId = document.getElementById('messages').dataset.currentUserId;
+            if (messageUserId === currentUserId) {
+              console.log("自分のメッセージ");
+              div.querySelector('.message').classList.add('my-message');
+            } else {
+              console.log("他人のメッセージ");
+              div.querySelector('.message').classList.add('other-message');
+            }
+            messages.insertAdjacentElement('afterbegin', div.firstElementChild);
           },
 
           speak: function(message) {

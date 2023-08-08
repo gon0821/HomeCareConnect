@@ -1,4 +1,4 @@
-<div class="message mb-2 <%= 'my-message' if message.user == current_user %>" >
+<div class="message mb-2 <%= message.user.id == current_user.id ? 'my-message' : 'other-message' %>" data-user-id="<%= message.user.id %>" >
   <div class="card">
     <div class="card-body">
       <p class="card-text">
