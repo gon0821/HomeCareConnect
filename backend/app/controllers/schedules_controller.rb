@@ -17,14 +17,19 @@ class SchedulesController < ApplicationController
 
   # 服用スケジュールの確認状況を更新する
   def update_confirmation
-    date = params[:date]&.to_date || Date.today
-    checked_schedules = Schedule.joins(:medication).where(medications: { secret_patient_id: @patient.secret_id }, id: params[:schedules])
-    unchecked_schedules = Schedule.joins(:medication).where(medications: { secret_patient_id: @patient.secret_id }, date: date).where.not(id: params[:schedules])
+    schedule_id = params[:schedule_id]
+    checked = params[:checked]
+    schedule = Schedule.find(schedule_id)
 
-    checked_schedules.update_all(confirmation: true)
-    unchecked_schedules.update_all(confirmation: false)
+    if checked == "true" # JavaScriptから送信された値は文字列として扱われることがあるため
+      schedule.update(confirmation: true)
+    else
+      schedule.update(confirmation: false)
+    end
 
-    redirect_to patient_schedules_path(@patient, date: date)
+    respond_to do |format|
+      format.json { render json: { success: true } } # JSON形式で成功レスポンスを返す
+    end
   end
 
   private

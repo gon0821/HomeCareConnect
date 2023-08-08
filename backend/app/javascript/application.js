@@ -10,3 +10,4 @@ window.$ = jquery
 import "flash_message"
 import "time_fields"
 import "memo_fields"
+import "confirmation"

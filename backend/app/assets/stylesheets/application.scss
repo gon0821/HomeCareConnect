@@ -101,3 +101,61 @@ html, body {
   line-height: 1.5;
   word-wrap: break-word; /* 単語の折り返し */
 }
+
+// スケジュール画面
+.confirm-button {
+  background-color: rgb(233, 233, 233);
+  transition: background-color 0.2s ease;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 7px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+.confirm-button.confirmed {
+  border: 1px solid rgb(43, 101, 248);
+  background-color: rgb(122, 204, 252);
+}
+
+.card-confirmed {
+  background-color: rgb(228, 243, 249);
+  transition: background-color 0.8s ease-in;
+}
+
+.schedule-cards .card {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(17, 5, 252, 0.2);
+  padding: 11px;
+  margin: 10px 0;
+}
+
+.schedule-details {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: start;
+  flex-grow: 1;
+}
+
+.time,
+.name,
+.dosage {
+  font-size: 1.1rem;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+.time {
+  color: #182d96;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dosage {
+  color: #182d96;
+}
