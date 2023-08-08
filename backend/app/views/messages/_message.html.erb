@@ -1,10 +1,14 @@
 <div class="message mb-2 <%= message.user.id == current_user.id ? 'my-message' : 'other-message' %>" data-user-id="<%= message.user.id %>" >
+  <div class="icon-box"></div>
+  <div class="user-name">
+    <strong><%= message.user.name %></strong>
+  </div>
   <div class="card">
     <div class="card-body">
       <p class="card-text">
-        <strong><%= message.user.name %>:</strong> <%= message.content %>
-        <small class="text-muted"><%= message.created_at.strftime("%m/%d %H:%M") %></small>
+        <%= message.content %>
       </p>
     </div>
+    <div class="timestamp" ><small class="text-muted"><%= message.created_at.strftime("%m/%d %H:%M") %></small></div>
   </div>
 </div>
