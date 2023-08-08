@@ -1,6 +1,6 @@
 class Patient < ApplicationRecord
   # PatientモデルがUserモデルを多数持つ（つまり一対多の関係）
-  has_many :users, primary_key: :secret_id, foreign_key: :secret_patient_id
+  has_many :users, primary_key: :secret_id, foreign_key: :secret_patient_id, dependent: :destroy
   # Patientモデルのインスタンスが生成される前に、generate_patient_idメソッドを実行する
   before_create :generate_secret_id
 
