@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # optional: trueにより関連付けられたPatientが存在しない場合でもエラーにならないようにする（患者本人登録時）
   belongs_to :patient, primary_key: :secret_id, foreign_key: :secret_patient_id, optional: true
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   validates :login_id, presence: true, uniqueness: true, length: { minimum: 4 }
   validates :name, presence: true
