@@ -16,11 +16,13 @@ document.addEventListener("turbo:load", function(){
           },
 
           received(data) {
+            console.log("メッセージを受け取った", data);
             const messages = document.getElementById('messages');
             messages.insertAdjacentHTML('afterbegin', data['message']);
           },
 
           speak: function(message) {
+            console.log("これからメッセージを送る", message);
             return this.perform('speak', { message: message, secret_id: secretId});
           }
         });

@@ -2,6 +2,9 @@ class RoomChannel < ApplicationCable::Channel
   def subscribed
     patient = Patient.find_by(secret_id: params[:secret_id])
     if patient && patient.secret_id == current_user.secret_patient_id
+      channel_name = "room_channel_#{patient.secret_id}"
+      puts "Subscribed to channel: #{channel_name}" # ログ出力
+
       stream_from "room_channel_#{patient.secret_id}"
     end
   end

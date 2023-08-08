@@ -4,7 +4,7 @@
       <h3 class="text-center mb-2">Chat Room</h3>
       <div class="card">
         <div class="card-body">
-          <div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>'>
+          <div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>' data-current-user-id='<%= current_user.id %>' >
             <%= render @messages %>
           </div>
         </div>

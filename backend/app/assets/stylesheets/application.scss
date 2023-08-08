@@ -61,6 +61,12 @@ html, body {
     background: linear-gradient(to right, #f8d7da, #f2a1a6);
   }
 
+// チャット画面
+.my-message .card {
+  background-color: #d5f8bb;
+}
+
+
 // 薬登録画面
 .label-placeholder {
   margin-top: 24px;  // ラベル分下げる
