@@ -25,17 +25,10 @@ html, body {
   min-height: 100vh;
 }
 
-.fixed-bottom-form {
-  position: fixed;
-  bottom: 0;
-  width: 50%;
-  padding: 20px;
-  background-color: #fff;
-}
 
 // フラッシュメッセージ
 .flash {
-    position: fixed;
+  position: fixed;
     top: 0;
     left: 25%; //サイドメニューの幅を引く
     right: 0;
@@ -47,21 +40,28 @@ html, body {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); // 影を追加
   }
 
-.flash-notice {
+  .flash-notice {
     color: #004085;
     background-color: #cce5ff;
     border-color: #b8daff;
     background: linear-gradient(to right, #cce5ff, #a2c4ff);
   }
 
-.flash-alert {
+  .flash-alert {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
     background: linear-gradient(to right, #f8d7da, #f2a1a6);
   }
 
-// チャット画面
+  // チャット　フォーム
+  .fixed-form {
+    position: sticky;
+    bottom: 0;
+    background-color: #e8f4e4;
+    // box-sizing: border-box;
+  }
+  // チャットメッセージ
 .other-message {
   position: relative;
   margin-bottom: 20px;
