@@ -62,34 +62,52 @@ html, body {
   }
 
 // チャット画面
-.message {
+// .message {
+//   position: relative;
+//   margin-bottom: 20px;
+//   display: flex;
+//   justify-content: flex-start;
+//   flex-direction: column;
+//   background-color: #fce5e5;
+// }
+
+.other-message {
   position: relative;
   margin-bottom: 20px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: #fce5e5;
+  // background-color: #fce5e5;
 }
 
 .my-message {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
   justify-content: flex-end;
+  flex-direction: column;
+  // background-color: #fce5e5;
 }
 
+
 .message .card { // 吹き出し
+  display: flex;
+  justify-content: flex-start;
   max-width: 70%;
   padding: 3px;
   border-radius: 5px;
-  margin-left: 60px;
+  margin-left: 30px;
 }
 
 .my-message .card { // 吹き出し（自分）
   margin-left: auto;
   background-color: #d5f8bb;
-  margin-right: 20px;
+  // margin-right: 20px;
 }
 
 .other-message .card {  // 吹き出し（他人）
   margin-right: auto;
+  margin-left: 55px;
   background-color: #f4f4f4;
 }
 
@@ -100,7 +118,7 @@ html, body {
   height: 0;
   border: 10px solid transparent;
   right: -20px;
-  top: 0;
+  top: 4;
   border-left-color: #d5f8bb;
 }
 
@@ -111,23 +129,24 @@ html, body {
   height: 0;
   border: 10px solid transparent;
   left: -20px;
-  top: 0;
+  top: 4;
   border-right-color: #f4f4f4;
 }
 
-.my-message .timestamp {  // タイムスタンプ
+.my-message .timestamp {
   position: absolute;
-  bottom: 0;
-  left: -70px; /* 自分のメッセージの場合、左側に配置 */
+  bottom: 5px;
+  left: -65px;/* 自分のメッセージの場合、左側に配置 */
   font-size: 10px;
 }
 
-.other-message .timestamp {
+.other-message .timestamp {  // タイムスタンプ
   position: absolute;
-  bottom: 0;
-  right: -70px;/* 他人のメッセージの場合、右側に配置 */
+  top: 20px;
+  left: -65px; /* 他人のメッセージの場合も左側に配置し、左側に時刻を揃える */
   font-size: 10px;
 }
+
 
 .my-message .user-name { // 自分のユーザー名は非表示
   display: none;
