@@ -4,9 +4,9 @@
     <strong><%= message.user.name %></strong>
   </div>
   <div class="card <%= message.user.id == current_user.id ? 'my-card' : 'other-card' %>">
-    <div class="card-body">
+    <div class="card-body pl-0 pb-0 pt-0 pr-0">
       <p class="card-text">
-        <%= message.content %>
+        <%= simple_format message.content %>
       </p>
     </div>
     <div class="timestamp" >

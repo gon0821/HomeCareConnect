@@ -62,22 +62,12 @@ html, body {
   }
 
 // チャット画面
-// .message {
-//   position: relative;
-//   margin-bottom: 20px;
-//   display: flex;
-//   justify-content: flex-start;
-//   flex-direction: column;
-//   background-color: #fce5e5;
-// }
-
 .other-message {
   position: relative;
   margin-bottom: 20px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  // background-color: #fce5e5;
 }
 
 .my-message {
@@ -86,15 +76,13 @@ html, body {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  // background-color: #fce5e5;
 }
-
 
 .message .card { // 吹き出し
   display: flex;
   justify-content: flex-start;
-  max-width: 70%;
-  padding: 3px;
+  max-width: 75%;
+  // padding: 1px;
   border-radius: 5px;
   margin-left: 30px;
 }
@@ -102,7 +90,6 @@ html, body {
 .my-message .card { // 吹き出し（自分）
   margin-left: auto;
   background-color: #d5f8bb;
-  // margin-right: 20px;
 }
 
 .other-message .card {  // 吹き出し（他人）
