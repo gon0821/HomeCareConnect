@@ -15,11 +15,55 @@
  */
 @import "bootstrap";
 
-html, body {
-  height: 100%;
+// ヘッダー
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #044a91;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.login-button {
+  margin-right: 10px;
+  width: 130px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+.login-button:hover {
+  color: #fff;
+  background-color: #6ab8f3;
+}
+
+.assign-button {
+  width: 140px;
+  color: #fff;
+  border: 1px solid #035bad;
+  background-color: #2695fc;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+.assign-button:hover {
+  color: #fff;
+  background-color: #0783f7;
+}
+
+.header .container h2 {
+  color: #fff;
+  margin: 0;
 }
 
 
+// ボディー
+body {
+  padding-top: 53px; // ヘッダーの高さ分だけ下にずらす
+}
+
+// サイドメニュー
 .bg-lightblue {
   background-color: #BAD3FF;
   min-height: 100vh;
