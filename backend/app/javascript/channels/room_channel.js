@@ -16,11 +16,24 @@ document.addEventListener("turbo:load", function(){
           },
 
           received(data) {
+            console.log("メッセージを受け取った", data);
             const messages = document.getElementById('messages');
-            messages.insertAdjacentHTML('afterbegin', data['message']);
+            const div = document.createElement('div');
+            div.innerHTML = data['message'];
+            const messageUserId = div.querySelector('.message').dataset.userId;
+            const currentUserId = document.getElementById('messages').dataset.currentUserId;
+            if (messageUserId === currentUserId) {
+              console.log("自分のメッセージ");
+              div.querySelector('.message').classList.add('my-message');
+            } else {
+              console.log("他人のメッセージ");
+              div.querySelector('.message').classList.add('other-message');
+            }
+            messages.insertAdjacentElement('afterbegin', div.firstElementChild);
           },
 
           speak: function(message) {
+            console.log("これからメッセージを送る", message);
             return this.perform('speak', { message: message, secret_id: secretId});
           }
         });
@@ -29,6 +42,7 @@ document.addEventListener("turbo:load", function(){
           let messageContent = document.getElementById('message_content');
             appRoom.speak(messageContent.value);
             messageContent.value = '';
+            messageContent.style.height = 'auto'; // テキストエリアの高さを初期値に戻す
             event.preventDefault();
         });
 

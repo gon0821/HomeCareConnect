@@ -1,21 +1,23 @@
 <div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-10">
-      <h3 class="text-center mb-2">Chat Room</h3>
+  <div class="row justify-content-center mt-3 mb-5">
+    <div class="col-xl-10">
       <div class="card">
         <div class="card-body">
-          <div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>'>
+          <div id ='messages' data-secret-id='<%= current_user.secret_patient_id %>' data-current-user-id='<%= current_user.id %>' >
             <%= render @messages %>
           </div>
         </div>
       </div>
-
-      <form id="new_message" class="mt-5 fixed-bottom-form">
-        <div class="form-group d-flex">
-          <textarea id="message_content" data-behavior="room_speaker" class="form-control me-2 flex-grow-1" rows="2"></textarea>
-          <input type="submit" value="送信" class="btn btn-success ml-3">
-        </div>
-      </form>
+      <div class="card p-3 pt-2 pb-4 fixed-form">
+        <form id="new_message" class="mt-1">
+          <div class="form-group d-flex">
+            <textarea id="message_content" data-behavior="room_speaker" class="form-control me-3 flex-grow-1" rows="1" placeholder="ここにメッセージを入力 ➢"></textarea>
+            <button type="submit" class="submit-button">
+              <i class="fa-regular fa-paper-plane fa-lg" style="color: #fafcff;"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
