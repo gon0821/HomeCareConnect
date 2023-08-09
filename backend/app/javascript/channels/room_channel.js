@@ -42,6 +42,7 @@ document.addEventListener("turbo:load", function(){
           let messageContent = document.getElementById('message_content');
             appRoom.speak(messageContent.value);
             messageContent.value = '';
+            messageContent.style.height = 'auto'; // テキストエリアの高さを初期値に戻す
             event.preventDefault();
         });
 

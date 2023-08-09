@@ -61,6 +61,24 @@ html, body {
     background-color: #e8f4e4;
     // box-sizing: border-box;
   }
+
+  #message_content {
+    resize: none; // テキストエリアのリサイズを無効化
+  }
+
+  .submit-button {
+    height: 40px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: #5c8aed;
+    transition: background-color 0.2s ease;
+    border : none;
+  }
+
+  .submit-button:hover {
+    background-color: #0250f6;
+    }
+
   // チャットメッセージ
 .other-message {
   position: relative;
@@ -150,7 +168,7 @@ html, body {
   left: 0;
   width: 40px;
   height: 40px;
-  background-color: #555;
+  background-color: #98f9f1;
   display: inline-block;
 }
 
@@ -176,6 +194,7 @@ html, body {
 .large-text-area {  // メモ欄
   height: 100px;
   overflow-y: auto; /* 縦方向のスクロールバーの表示 */
+  resize: none; /* テキストエリアのリサイズを禁止 */
 }
 
 // 薬一覧画面
