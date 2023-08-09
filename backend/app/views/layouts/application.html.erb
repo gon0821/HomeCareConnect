@@ -19,9 +19,15 @@
           </div>
           <% if user_signed_in? %>
             <div class="col text-end">
-              <!-- ここにユーザーに関連するアクションや検索バーなど -->
-              <a href="#" class="btn btn-primary">追加</a>
-              <a href="#" class="btn btn-secondary">設定</a>
+              <div class="dropdown">
+                <a class="btn user-icon dropdown-toggle" href="#" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                  <li><%= link_to "ユーザー情報", home_show_path, class: "dropdown-item" %></li>
+                  <li><%= link_to "ユーザー設定", edit_user_registration_path, class: "dropdown-item" %></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                </ul>
+              </div>
             </div>
           <% else %>
             <div class="col text-end">
@@ -29,14 +35,13 @@
               <a href="<%= new_user_registration_path %>" class="btn assign-button">無料で開始する</a>
             </div>
           <% end %>
-
         </div>
       </div>
     </div>
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3 bg-lightblue">
+        <div class="col-2 bg-lightblue">
           <!-- ここにサイドメニューを配置 -->
           <% if user_signed_in? %>
             <!-- ログイン後のメニュー -->
@@ -44,26 +49,13 @@
               <a href="<%= rooms_show_path %>" class="list-group-item list-group-item-action">チャットルーム</a>
               <a href="<%= patient_schedules_path(current_patient) %>" class="list-group-item list-group-item-action mt-3">服用スケジュール</a>
               <a href="<%=  patient_medications_path(current_patient) %>" class="list-group-item list-group-item-action mt-3">お薬リスト</a>
-
-              <div class="dropdown">
-              <a class="list-group-item list-group-item-action dropdown-toggle mt-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                その他
-              </a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><%= link_to "ユーザー情報", home_show_path, class: "dropdown-item" %></li>
-                <li><%= link_to "ユーザー設定", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-              </ul>
-            </div>
             </div>
           <% else %>
             <!-- ログイン前のメニュー -->
           <% end %>
         </div>
 
-        <div class="col-9">
+        <div class="col-10">
           <!-- deviseのflashメッセージを表示する -->
           <%= render 'layouts/flash_messages' %>
           <!-- ここに各ビューが表示される -->

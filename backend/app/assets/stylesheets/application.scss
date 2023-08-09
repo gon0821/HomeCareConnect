@@ -23,11 +23,11 @@
   right: 0;
   z-index: 1000;
   background-color: #044a91;
-  padding: 8px 0;
+  padding: 5px 0;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.login-button {
+.login-button {   // ログインボタン
   margin-right: 10px;
   width: 130px;
   background-color: #ffffff;
@@ -39,7 +39,7 @@
   background-color: #6ab8f3;
 }
 
-.assign-button {
+.assign-button {  // 新規登録ボタン
   width: 140px;
   color: #fff;
   border: 1px solid #035bad;
@@ -52,11 +52,19 @@
   background-color: #0783f7;
 }
 
-.header .container h2 {
+.header .container h2 { // ヘッダーのタイトル
   color: #fff;
   margin: 0;
 }
 
+.user-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 // ボディー
 body {
