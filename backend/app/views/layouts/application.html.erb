@@ -45,7 +45,9 @@
     </div>
 
     <!-- deviseのflashメッセージを表示する -->
-    <%= render 'layouts/flash_messages' %>
+    <div class="flash-container <%= user_signed_in? ? 'logged-in' : 'logged-out' %>">
+      <%= render 'layouts/flash_messages' %>
+    </div>
 
     <div class="container-fluid">
       <div class="row">
