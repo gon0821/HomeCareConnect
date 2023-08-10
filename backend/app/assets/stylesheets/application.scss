@@ -15,7 +15,7 @@
  */
 @import "bootstrap";
 
-// ヘッダー --------------------------------------
+// ヘッダー ----------------------------------------------------------
 .header {
   position: fixed;
   top: 0;
@@ -46,7 +46,7 @@
   width: 140px;
   height: 45px;
   padding: 10px 0;
-  color: #ffffff;
+  color: #000000;
   border: 1px solid #035bad;
   background-color: #4ba6fb;
   border-radius: 10px;
@@ -63,7 +63,7 @@
   padding: 0;
 }
 
-// ユーザーメニュー
+// ユーザーメニュー ----------------------------------------------------
 .user-menu {
   position: relative;
 }
@@ -241,7 +241,7 @@ body {
     background-color: #0250f6;
     }
 
-  // チャットメッセージ
+  // チャットメッセージ  --------------------------------------
 .other-message {
   position: relative;
   margin-bottom: 20px;
@@ -437,3 +437,24 @@ body {
 
 
 // トップページ　---------------------------------------------
+.hcc-button {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: #000000;
+  background-color: #78baf8;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.5s ease;
+}
+.hcc-button:hover {
+  color: #fff;
+  background-color: #067af7;
+}
+
+.patient-text {
+  color:rgb(6, 161, 84);
+}
+
+.top-content {
+  background-color: bisque;
+}
