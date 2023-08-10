@@ -11,45 +11,71 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-3 bg-lightblue">
-          <!-- ここにサイドメニューを配置 -->
+    <div class="header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <h2>HomeCareConnect</h2>
+          </div>
           <% if user_signed_in? %>
-            <!-- ログイン後のメニュー -->
-            <div class="list-group mt-5">
-              <a href="<%= rooms_show_path %>" class="list-group-item list-group-item-action">チャットルーム</a>
-              <a href="<%= patient_schedules_path(current_patient) %>" class="list-group-item list-group-item-action mt-3">服用スケジュール</a>
-              <a href="<%=  patient_medications_path(current_patient) %>" class="list-group-item list-group-item-action mt-3">お薬リスト</a>
-
-              <div class="dropdown">
-              <a class="list-group-item list-group-item-action dropdown-toggle mt-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                その他
-              </a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><%= link_to "ユーザー情報", home_show_path, class: "dropdown-item" %></li>
-                <li><%= link_to "ユーザー設定", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-              </ul>
-            </div>
+            <div class="col text-end">
+              <div class="user-menu">
+                <div class="user-icon" id="userIcon"></div>
+                <div class="user-dropdown" id="userDropdown">
+                  <ul>
+                    <li class="user-name"><%= current_user.name %>（<%= role_in_japanese(current_user.role) %>）</li>
+                    <li><%= link_to raw('<i class="fa-solid fa-gear" style="color: #878787;"></i>  設定'), edit_user_registration_path %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to raw('<i class="fa-regular fa-address-book" style="color: #787878;"></i> プロフィール・患者ID'), home_show_path %></li>
+                    <li><%= link_to raw('<i class="fa-solid fa-desktop" style="color: #999999;"></i>  アップデート予定') %></li>
+                    <li class="divider"></li>
+                    <li class="logout-button"><%= link_to raw('<i class="fa-solid fa-right-to-bracket" style="color: #4d4d4d;"></i> ログアウト'), destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           <% else %>
-            <!-- ログイン前のメニュー -->
-            <div class="list-group mt-5">
-              <a href="<%= new_user_registration_path %>" class="list-group-item list-group-item-action ">新規登録</a>
-              <a href="<%= new_user_session_path %>" class="list-group-item list-group-item-action mt-3">ログイン</a>
+            <div class="col text-end">
+              <a href="<%= new_user_session_path %>" class="btn login-button">ログイン</a>
+              <a href="<%= new_user_registration_path %>" class="btn assign-button">無料で開始する</a>
             </div>
           <% end %>
         </div>
+      </div>
+    </div>
 
-        <div class="col-9">
-          <!-- deviseのflashメッセージを表示する -->
-          <%= render 'layouts/flash_messages' %>
-          <!-- ここに各ビューが表示される -->
-          <%= yield %>
-        </div>
+    <!-- deviseのflashメッセージを表示する -->
+    <div class="flash-container <%= user_signed_in? ? 'logged-in' : 'logged-out' %>">
+      <%= render 'layouts/flash_messages' %>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <% if user_signed_in? %>  <!-- ログインしている場合 -->
+        <!-- ここにサイドメニューを配置 -->
+          <div class="side-menu">
+            <div class="list-group">
+              <a href="<%= rooms_show_path %>" class="list-side-menu <%= 'active' if current_page?(rooms_show_path) %>">
+                <%= image_tag 'comment-dots-regular.svg', alt: 'チャット', class: 'icon-class' %>チャットルーム
+              </a>
+              <a href="<%= patient_schedules_path(current_patient) %>" class="list-side-menu <%= 'active' if current_page?(patient_schedules_path(current_patient)) %>">
+                <%= image_tag 'rectangle-list-regular.svg', alt: 'スケジュール', class: 'icon-class' %>服用スケジュール
+              </a>
+              <a href="<%=  patient_medications_path(current_patient) %>" class="list-side-menu <%= 'active' if current_page?(patient_medications_path(current_patient)) %>">
+                <%= image_tag 'file-medical-solid.svg', alt: 'お薬リスト', class: 'icon-class-list' %>お薬リスト
+              </a>
+            </div>
+          </div>
+          <div class="content-area">
+            <!-- ここに各ビューが表示される -->
+            <%= yield %>
+          </div>
+        <% else %>      <!-- ログイン前ー -->
+          <div class="col-12">
+            <!-- ここに各ビューが表示される -->
+            <%= yield %>
+          </div>
+        <% end %>
       </div>
     </div>
   </body>
