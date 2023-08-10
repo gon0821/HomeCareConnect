@@ -125,11 +125,61 @@ body {
 }
 
 // サイドメニュー
-.bg-lightblue {
-  background-color: #BAD3FF;
-  min-height: 100vh;
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  padding: 90px 20px;
+  background-color: #d0dcf7;
+  overflow-y: auto;
 }
 
+.content-area {
+  margin-left: 20%; // サイドメニューの幅分だけ右にずらす
+  width: 80%;
+  overflow-y: auto;
+}
+
+.list-side-menu {
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+  // background-color: #fff;
+  border-radius: 10px;
+}
+.list-side-menu:hover {
+  color: black;
+  background-color: #fff;
+}
+.list-side-menu.active {
+  color: #fff;
+  background-color: #479bfb;
+}
+
+.icon-class {
+  width: 25px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.icon-class-list {
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 3px;
+}
+
+
+// .mark-side1 {
+//   margin-right: 10px;
+// }
+
+// .mark-side2 {
+//   margin-right: 15px;
+// }
 
 // フラッシュメッセージ
 .flash {

@@ -49,24 +49,31 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2 bg-lightblue">
-          <!-- ここにサイドメニューを配置 -->
-          <% if user_signed_in? %>
-            <!-- ログイン後のメニュー -->
-            <div class="list-group mt-5">
-              <a href="<%= rooms_show_path %>" class="list-group-item list-group-item-action">チャットルーム</a>
-              <a href="<%= patient_schedules_path(current_patient) %>" class="list-group-item list-group-item-action mt-3">服用スケジュール</a>
-              <a href="<%=  patient_medications_path(current_patient) %>" class="list-group-item list-group-item-action mt-3">お薬リスト</a>
+        <% if user_signed_in? %>  <!-- ログインしている場合 -->
+        <!-- ここにサイドメニューを配置 -->
+          <div class="side-menu">
+            <div class="list-group">
+              <a href="<%= rooms_show_path %>" class="list-side-menu <%= 'active' if current_page?(rooms_show_path) %>">
+                <%= image_tag 'comment-dots-regular.svg', alt: 'チャット', class: 'icon-class' %>チャットルーム
+              </a>
+              <a href="<%= patient_schedules_path(current_patient) %>" class="list-side-menu <%= 'active' if current_page?(patient_schedules_path(current_patient)) %>">
+                <%= image_tag 'rectangle-list-regular.svg', alt: 'スケジュール', class: 'icon-class' %>服用スケジュール
+              </a>
+              <a href="<%=  patient_medications_path(current_patient) %>" class="list-side-menu <%= 'active' if current_page?(patient_medications_path(current_patient)) %>">
+                <%= image_tag 'file-medical-solid.svg', alt: 'お薬リスト', class: 'icon-class-list' %>お薬リスト
+              </a>
             </div>
-          <% else %>
-            <!-- ログイン前のメニュー -->
-          <% end %>
-        </div>
-
-        <div class="col-10">
-          <!-- ここに各ビューが表示される -->
-          <%= yield %>
-        </div>
+          </div>
+          <div class="content-area">
+            <!-- ここに各ビューが表示される -->
+            <%= yield %>
+          </div>
+        <% else %>      <!-- ログイン前ー -->
+          <div class="col-12">
+            <!-- ここに各ビューが表示される -->
+            <%= yield %>
+          </div>
+        <% end %>
       </div>
     </div>
   </body>
