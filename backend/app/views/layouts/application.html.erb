@@ -19,14 +19,19 @@
           </div>
           <% if user_signed_in? %>
             <div class="col text-end">
-              <div class="dropdown">
-                <a class="btn user-icon dropdown-toggle" href="#" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                  <li><%= link_to "ユーザー情報", home_show_path, class: "dropdown-item" %></li>
-                  <li><%= link_to "ユーザー設定", edit_user_registration_path, class: "dropdown-item" %></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-                </ul>
+              <div class="user-menu">
+                <div class="user-icon" id="userIcon"></div>
+                <div class="user-dropdown" id="userDropdown">
+                  <ul>
+                    <li class="user-name"><%= current_user.name %>（<%= role_in_japanese(current_user.role) %>）</li>
+                    <li><%= link_to raw('<i class="fa-solid fa-gear" style="color: #878787;"></i>  設定'), edit_user_registration_path %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to raw('<i class="fa-regular fa-address-book" style="color: #787878;"></i> プロフィール・患者ID'), home_show_path %></li>
+                    <li><%= link_to raw('<i class="fa-solid fa-desktop" style="color: #999999;"></i>  アップデート予定') %></li>
+                    <li class="divider"></li>
+                    <li class="logout-button"><%= link_to raw('<i class="fa-solid fa-right-to-bracket" style="color: #4d4d4d;"></i> ログアウト'), destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </div>
               </div>
             </div>
           <% else %>
@@ -38,6 +43,9 @@
         </div>
       </div>
     </div>
+
+    <!-- deviseのflashメッセージを表示する -->
+    <%= render 'layouts/flash_messages' %>
 
     <div class="container-fluid">
       <div class="row">
@@ -56,8 +64,6 @@
         </div>
 
         <div class="col-10">
-          <!-- deviseのflashメッセージを表示する -->
-          <%= render 'layouts/flash_messages' %>
           <!-- ここに各ビューが表示される -->
           <%= yield %>
         </div>

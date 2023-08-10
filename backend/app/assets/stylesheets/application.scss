@@ -41,14 +41,14 @@
 
 .assign-button {  // 新規登録ボタン
   width: 140px;
-  color: #fff;
+  color: #ffffff;
   border: 1px solid #035bad;
-  background-color: #2695fc;
+  background-color: #4ba6fb;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 .assign-button:hover {
-  color: #fff;
+  color: #ffffff;
   background-color: #0783f7;
 }
 
@@ -57,13 +57,66 @@
   margin: 0;
 }
 
+.user-menu {           // ユーザーメニュー
+  position: relative;
+}
+
 .user-icon {
   width: 40px;
   height: 40px;
-  margin-left: 10px;
   background-color: #fff;
   border-radius: 50%;
+  cursor: pointer;
   display: inline-block;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;     /* アイコンの下に配置 */
+  right: 0;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(108, 108, 108, 0.2), -3px 0px 10px rgba(108, 108, 108, 0.4);
+  z-index: 1;
+}
+
+.user-dropdown ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: left;
+}
+.user-dropdown li {
+  padding: 1px 10px;
+}
+.user-dropdown li a {
+  display: block;
+  line-height: 40px;
+  height: 40px;
+  padding-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+.user-dropdown li a:hover {
+  background-color: #eaeaea;
+}
+
+.user-name {
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.logout-button {
+  margin-bottom: 10px;
+}
+.divider {
+  height: 0.1px;
+  background-color: #eaeaea;
+  margin: 8px 4px;
 }
 
 // ボディー
@@ -81,7 +134,7 @@ body {
 // フラッシュメッセージ
 .flash {
   position: fixed;
-    top: 0;
+    top: 100px;
     left: 25%; //サイドメニューの幅を引く
     right: 0;
     width: 75%; // 各ビュー75%に設定
