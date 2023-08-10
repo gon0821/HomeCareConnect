@@ -15,7 +15,11 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col">
-            <h2>HomeCareConnect</h2>
+            <% if user_signed_in? %>
+              <%= link_to image_tag('hcc_logo.png', alt: 'HomeCareConnect', class: 'hcc-logo'), rooms_show_path %>
+            <% else %>
+              <%= link_to image_tag('hcc_logo.png', alt: 'HomeCareConnect', class: 'hcc-logo'), root_path %>
+            <% end %>
           </div>
           <% if user_signed_in? %>
             <div class="col text-end">
