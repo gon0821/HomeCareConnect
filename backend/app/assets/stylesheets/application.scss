@@ -503,3 +503,16 @@ body {
   border-color: #021391;
   box-shadow: 0 0 0 0.1rem #02268888;
 }
+
+// 設定画面　---------------------------------------------
+.delete-link {
+  color: #fff;
+  background-color: #f67676;
+  border: 3px solid #f86868;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+.delete-link:hover {
+  color: #fff;
+  background-color: #f42222;
+}

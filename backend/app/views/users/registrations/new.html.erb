@@ -6,8 +6,7 @@
       <h3 class=" mb-3 text-center">アカウントを作成</h3>
 
       <% if resource.errors.any? %>
-        <div class="alert alert-danger">
-          <strong><%= pluralize(resource.errors.count, "件") %> のエラーが発生したため登録できませんでした</strong>
+        <div class="alert alert-danger"
           <ul>
           <% resource.errors.full_messages.each do |message| %>
             <li><%= message %></li>
