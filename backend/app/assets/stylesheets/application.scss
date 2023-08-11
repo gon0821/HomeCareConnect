@@ -478,22 +478,28 @@ body {
   margin-top: 10px;
 }
 
-.sign-up {
+.main-link {
   font-size: 1.2rem;
   border-radius: 10px;
   color: #fff;
   background-color: #78baf8;
   transition: background-color 0.2s ease;
 }
-.sign-up:hover {
+.main-link:hover {
   color: #fff;
   background-color: #056ad6;
 }
 
-.sign-in {
+.another-link {
   border: none;
   color: #a2a2a2;
 }
-.sign-in:hover {
+.another-link:hover {
   color: #3d3d3d;
+  text-decoration: none;
+}
+
+.form-control:focus {  // フォームの枠線
+  border-color: #021391;
+  box-shadow: 0 0 0 0.1rem #02268888;
 }

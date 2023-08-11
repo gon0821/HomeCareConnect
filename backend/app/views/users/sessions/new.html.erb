@@ -1,33 +1,27 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row justify-content-center">
     <div class="col-md-6">
-    <h4 class="text-center mb-3">ログイン</h4>
+    <h3 class="text-center mb-3">ログイン</h3>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "card p-4" }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <div class="mb-3">
         <%= f.label :login_id, class: "form-label" %><br />
         <%= f.text_field :login_id, autofocus: true, autocomplete: "username", class: "form-control" %>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-4">
         <%= f.label :password, class: "form-label" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="mb-3">
-          <%= f.check_box :remember_me, class: "form-check-input" %>
-          <%= f.label :remember_me, class: "form-check-label" %>
-        </div>
-      <% end %>
-
-      <div class="mb-3">
-        <%= f.submit "ログイン", class: "btn btn-primary w-100" %>
+      <div class="mb-4">
+        <%= f.submit "ログイン", class: "btn w-100 main-link" %>
       </div>
     <% end %>
 
-    <%= link_to "パスワードを忘れた場合", new_user_password_path, class: "text-center d-block" %>
+    <hr>
+    <%= link_to "新規登録はこちら", new_user_registration_path, class: "btn w-100 another-link" %>
     </div>
   </div>
 </div>
