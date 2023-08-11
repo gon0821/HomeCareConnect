@@ -15,7 +15,7 @@
  */
 @import "bootstrap";
 
-// ヘッダー
+// ヘッダー ----------------------------------------------------------
 .header {
   position: fixed;
   top: 0;
@@ -46,7 +46,7 @@
   width: 140px;
   height: 45px;
   padding: 10px 0;
-  color: #ffffff;
+  color: #000000;
   border: 1px solid #035bad;
   background-color: #4ba6fb;
   border-radius: 10px;
@@ -57,13 +57,13 @@
   background-color: #0783f7;
 }
 
-.header .container h2 { // ヘッダーのタイトル
-  color: #fff;
+.hcc-logo { // ヘッダーのタイトル
+  height: 30px;
   margin: 0;
   padding: 0;
 }
 
-// ユーザーメニュー
+// ユーザーメニュー ----------------------------------------------------
 .user-menu {
   position: relative;
 }
@@ -128,12 +128,16 @@
   margin: 8px 4px;
 }
 
-// ボディー
+// ボディー --------------------------------------
 body {
   padding-top: 60px; // ヘッダーの高さ分だけ下にずらす
 }
 
-// サイドメニュー
+.content-area {
+  padding: 0;
+}
+
+// サイドメニュー --------------------------------------
 .side-menu {
   position: fixed;
   top: 0;
@@ -181,7 +185,7 @@ body {
   margin-left: 3px;
 }
 
-// フラッシュメッセージ
+// フラッシュメッセージ --------------------------------------
 .flash {
   position: fixed;
     top: 60px;
@@ -215,13 +219,23 @@ body {
     width: 80%;
 }
 
+// チャットルーム  --------------------------------------
+.chat-box {
+  width: 100%;
+  // background-image: image-url('chat_background_image.png');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center center;
+}
 
-  // チャット　フォーム
+
+  // チャット　フォーム  --------------------------------------
   .fixed-form {
-    position: sticky;
+    position: fixed;
     bottom: 0;
-    background-color: #e8f4e4;
-    // box-sizing: border-box;
+    left: 20%;
+    width: 80%;
+    background-color: #b3b3b3;
   }
 
   #message_content {
@@ -241,7 +255,7 @@ body {
     background-color: #0250f6;
     }
 
-  // チャットメッセージ
+  // チャットメッセージ  --------------------------------------
 .other-message {
   position: relative;
   margin-bottom: 20px;
@@ -269,7 +283,7 @@ body {
 
 .my-message .card { // 吹き出し（自分）
   margin-left: auto;
-  background-color: #d5f8bb;
+  background-color: #dcf1f8;
 }
 
 .other-message .card {  // 吹き出し（他人）
@@ -286,7 +300,7 @@ body {
   border: 10px solid transparent;
   right: -20px;
   top: 4;
-  border-left-color: #d5f8bb;
+  border-left-color: #dcf1f8;
 }
 
 .other-message .card:before { // 吹き出しの三角部分（他人）
@@ -335,7 +349,7 @@ body {
 }
 
 
-// 薬登録画面
+// 薬登録画面  --------------------------------------
 .label-placeholder {
   margin-top: 24px;  // ラベル分下げる
 }
@@ -359,7 +373,7 @@ body {
   resize: none; /* テキストエリアのリサイズを禁止 */
 }
 
-// 薬一覧画面
+// 薬一覧画面 --------------------------------------
 .time-label {
   display: inline-block;
   padding: 5px 10px;
@@ -377,7 +391,7 @@ body {
   word-wrap: break-word; /* 単語の折り返し */
 }
 
-// スケジュール画面
+// スケジュール画面 --------------------------------------
 .confirm-button {
   background-color: rgb(233, 233, 233);
   transition: background-color 0.2s ease;
@@ -433,4 +447,28 @@ body {
 
 .dosage {
   color: #182d96;
+}
+
+
+// トップページ　---------------------------------------------
+.hcc-button {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: #000000;
+  background-color: #78baf8;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.5s ease;
+}
+.hcc-button:hover {
+  color: #fff;
+  background-color: #067af7;
+}
+
+.patient-text {
+  color:rgb(6, 161, 84);
+}
+
+.top-content {
+  background-color: bisque;
 }

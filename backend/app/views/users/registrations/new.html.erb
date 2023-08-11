@@ -68,36 +68,38 @@ document.addEventListener('turbo:load', function() {
   const roleSelect = document.querySelector('#user_role');
   const patientIdInput = document.querySelector('#user_secret_patient_id');
 
-  // 初期値に基づいて、患者IDの入力フィールドを無効にするかどうかを決定する関数
-  const setPatientIdInputStatus = () => {
-    if (roleSelect.value === 'patient') {
-      patientIdInput.setAttribute('disabled', 'disabled');
-      patientIdInput.value = '';
-    } else {
-      patientIdInput.removeAttribute('disabled');
+  if (roleSelect && patientIdInput) {
+    const setPatientIdInputStatus = () => {
+      if (roleSelect.value === 'patient') {
+        patientIdInput.setAttribute('disabled', 'disabled');
+        patientIdInput.value = '';
+      } else {
+        patientIdInput.removeAttribute('disabled');
+      }
     }
-  }
 
-  // ページ読み込み時と役職の選択が変わったときに、患者IDの入力フィールドの状態を設定
-  setPatientIdInputStatus();
-  roleSelect.addEventListener('change', setPatientIdInputStatus);
+    setPatientIdInputStatus();
+    roleSelect.addEventListener('change', setPatientIdInputStatus);
+  }
 });
 
 document.addEventListener('turbo:render', function() {
   const roleSelect = document.querySelector('#user_role');
   const patientIdInput = document.querySelector('#user_secret_patient_id');
 
-  const setPatientIdInputStatus = () => {
-    if (roleSelect.value === 'patient') {
-      patientIdInput.setAttribute('disabled', 'disabled');
-      patientIdInput.value = '';
-    } else {
-      patientIdInput.removeAttribute('disabled');
+  if (roleSelect && patientIdInput) {
+    const setPatientIdInputStatus = () => {
+      if (roleSelect.value === 'patient') {
+        patientIdInput.setAttribute('disabled', 'disabled');
+        patientIdInput.value = '';
+      } else {
+        patientIdInput.removeAttribute('disabled');
+      }
     }
-  }
 
-  setPatientIdInputStatus();
-  roleSelect.addEventListener('change', setPatientIdInputStatus);
+    setPatientIdInputStatus();
+    roleSelect.addEventListener('change', setPatientIdInputStatus);
+  }
 });
 
 </script>
