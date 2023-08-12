@@ -199,16 +199,14 @@ body {
   .flash-notice {
     color: #09023a;
     font-size: 1.1rem;
-    background-color: #f3f8db;
+    background-color: #f8f5db;
     border-color: #fde976;
-    background: linear-gradient(to right, #f3f8db, #fde976);
   }
 
   .flash-alert {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
-    background: linear-gradient(to right, #f8d7da, #f2a1a6);
   }
 
   .flash-container.logged-out .flash {    /* ログイン前 横いっぱい */
@@ -516,6 +514,18 @@ body {
   color: #182d96;
 }
 
+.no-schedule {
+  margin-top: 10px;
+  text-align: center;
+}
+.no-schedule p {
+  font-size: 1.2rem;
+  color: #484849;
+  margin-top: 20px;
+}
+.no-schedule-img {
+  width: 50%;
+}
 
 // トップページ　---------------------------------------------
 .hcc-button {
