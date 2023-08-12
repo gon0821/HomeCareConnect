@@ -6,6 +6,7 @@ window.addEventListener('turbo:load', function () {
 
   if(btn && modal) {
     btn.onclick = function () {
+      event.preventDefault();  // リンク先を「#」にしており、ページの先頭に移動するのでそれを防ぎ、モーダルを表示するだけにする
       modal.style.display = "block";
     }
   }
