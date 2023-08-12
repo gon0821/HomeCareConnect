@@ -199,16 +199,14 @@ body {
   .flash-notice {
     color: #09023a;
     font-size: 1.1rem;
-    background-color: #f3f8db;
+    background-color: #f8f5db;
     border-color: #fde976;
-    background: linear-gradient(to right, #f3f8db, #fde976);
   }
 
   .flash-alert {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
-    background: linear-gradient(to right, #f8d7da, #f2a1a6);
   }
 
   .flash-container.logged-out .flash {    /* ログイン前 横いっぱい */
@@ -384,7 +382,7 @@ body {
 }
 
 .memo-content {
-  background-color: hsl(81, 64%, 96%);
+  background-color: #f7fbee;
   padding: 15px;
   border: 1px solid #ccc;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -392,24 +390,90 @@ body {
   word-wrap: break-word; /* 単語の折り返し */
 }
 
-// スケジュール画面 --------------------------------------
-.confirm-button {
-  background-color: rgb(233, 233, 233);
+// スケジュール画面 --------------------------------------------
+.schedule-last-next {
+  display: flex;
+  align-items: center;
+}
+.last-week-button, .next-week-button {  // 前後の週ボタン
+  background-color: #f4fcf3;
   transition: background-color 0.2s ease;
-  border: 1px solid rgb(233, 233, 233);
+  border: 1px solid #cdcdcd;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.last-week-button:hover, .next-week-button:hover {
+  background-color: #cef696;
+}
+
+.last-week-button {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.next-week-button {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-left: 5px;
+}
+
+.today-button {
+  padding: 10px 20px;
+  background-color: #f4fcf3;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+.today-button:hover {
+  background-color: #cef696;
+}
+
+.schedule-week {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.date-button {
+  flex-grow: 1;
+  padding: 10px 0;
+  // background-color: #f4f3f3;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+.date-button:hover {
+  color: #fff;
+  background-color: #398bf6;
+}
+
+.selected-date {
+  background-color: #ecf8ce;
+  border-bottom: 3px solid #a9f718;
+}
+
+.confirm-button {
+  background-color: #f3f9fc;
+  transition: background-color 0.2s ease;
+  border: 1px solid #e9e9e9;
   border-radius: 7px;
   padding: 10px 25px;
+  border: 1px solid #2676f7;
   cursor: pointer;
+}
+.confirm-button:hover {
+  color: #fff;
+  background-color: #2676f7;
 }
 
 .confirm-button.confirmed {
-  border: 1px solid rgb(43, 101, 248);
-  background-color: rgb(122, 204, 252);
+  color: #fff;
+  background-color: #2676f7;
 }
 
 .card-confirmed {
-  background-color: rgb(228, 243, 249);
-  transition: background-color 0.8s ease-in;
+  background-color: #dfe6f6;
+  transition: background-color 0.5s ease-in;
 }
 
 .schedule-cards .card {
@@ -418,7 +482,7 @@ body {
   align-items: baseline;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(17, 5, 252, 0.2);
+  box-shadow: 3px 3px 5px #1105fc33;
   padding: 11px;
   margin: 10px 0;
 }
@@ -450,6 +514,18 @@ body {
   color: #182d96;
 }
 
+.no-schedule {
+  margin-top: 10px;
+  text-align: center;
+}
+.no-schedule p {
+  font-size: 1.2rem;
+  color: #484849;
+  margin-top: 20px;
+}
+.no-schedule-img {
+  width: 50%;
+}
 
 // トップページ　---------------------------------------------
 .hcc-button {

@@ -1,29 +1,47 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h2 class="text-center mb-3"><%= @date.strftime("%-m月%-d日") %>のスケジュール</h2>
+    <div class="col-md-10">
+      <h2 class="mb-3"><%= @date.strftime("%Y年%-m月") %></h2>
 
-      <div class="d-flex justify-content-between mb-3">
-        <%= link_to '前の日', patient_schedules_path(@patient, date: @date - 1.day), class: "btn btn-info me-2" %>
-        <%= link_to '次の日', patient_schedules_path(@patient, date: @date + 1.day), class: "btn btn-info" %>
+      <div class="schedule-last-next">
+        <% last_start_date = @date-7 %>
+        <% next_start_date = @date+7 %>
+        <%= link_to "◀", patient_schedules_path(@patient, date: last_start_date), class: "btn last-week-button", title: "前の週" %>
+        <%= link_to "▶", patient_schedules_path(@patient, date: next_start_date), class: "btn next-week-button", title: "次の週"  %>
+        <%= link_to "今日", patient_schedules_path(@patient, date: Date.today), class: "btn today-button"%>
       </div>
 
-      <div class="schedule-cards">
-        <% @schedules.each do |schedule| %>
-          <div class="card <%= 'card-confirmed' if schedule.confirmation %> ">
-            <div class="card-body d-flex align-items-center">
-              <button class="confirm-button <%= 'confirmed' if schedule.confirmation %>" data-schedule-id="<%= schedule.id %>" data-url="<%= update_confirmation_patient_schedules_path(@patient) %>" >
-                ✓
-              </button>
-              <div class="schedule-details">
-                <div class="time"><%= schedule.medication.send("time#{schedule.time_slot}").strftime('%H:%M') %></div>
-                <div class="name"><%= schedule.medication.name %></div>
-                <div class="dosage"><%= schedule.medication.dosage %></div>
-              </div>
-            </div>
-          </div>
+      <div class="schedule-week">
+        <% start_date = @date.beginning_of_week(:monday) %>
+        <% 7.times do |i| %>
+          <%= link_to "#{start_date.strftime("%-d")} (#{japanese_weekday(start_date)})", patient_schedules_path(@patient, date: start_date), class: "btn date-button #{'selected-date' if @date == start_date}" %>
+          <% start_date += 1.day %>
         <% end %>
       </div>
+
+      <% if @schedules.present? %>  <!-- スケジュールがある場合 -->
+        <div class="schedule-cards">
+          <% @schedules.each do |schedule| %>
+            <div class="card <%= 'card-confirmed' if schedule.confirmation %> ">
+              <div class="card-body d-flex align-items-center">
+                <button class="confirm-button <%= 'confirmed' if schedule.confirmation %>" data-schedule-id="<%= schedule.id %>" data-url="<%= update_confirmation_patient_schedules_path(@patient) %>" >
+                  ✓
+                </button>
+                <div class="schedule-details">
+                  <div class="time"><%= schedule.medication.send("time#{schedule.time_slot}").strftime('%H:%M') %></div>
+                  <div class="name"><%= schedule.medication.name %></div>
+                  <div class="dosage"><%= schedule.medication.dosage %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>      <!-- スケジュールがない場合 -->
+        <div class="no-schedule">
+          <%= image_tag "no-schedule.svg", class: "no-schedule-img" %>
+          <p>本日の服用スケジュールがありません</p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

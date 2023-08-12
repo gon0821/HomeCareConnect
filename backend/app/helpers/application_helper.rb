@@ -15,4 +15,20 @@ module ApplicationHelper
       '未定義'
     end
   end
+
+  # 服用スケジュールで使用
+  def japanese_weekday(date)
+    english_to_japanese = {
+      'Sun' => '日',
+      'Mon' => '月',
+      'Tue' => '火',
+      'Wed' => '水',
+      'Thu' => '木',
+      'Fri' => '金',
+      'Sat' => '土'
+    }
+
+    english_weekday = date.strftime('%a')
+    english_to_japanese[english_weekday]
+  end
 end
