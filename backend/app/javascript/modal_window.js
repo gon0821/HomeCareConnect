@@ -4,13 +4,13 @@ window.addEventListener('turbo:load', function () {
   var btn = document.getElementById("openModal");
   var span = document.getElementById("closeModal");
 
-  if(btn) {
+  if(btn && modal) {
     btn.onclick = function () {
       modal.style.display = "block";
     }
   }
 
-  if(span) {
+  if(span && modal) {
     span.onclick = function () {
       modal.style.display = "none";
     }

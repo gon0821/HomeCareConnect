@@ -164,10 +164,10 @@ body {
 }
 .list-side-menu:hover {
   color: black;
-  background-color: #fff;
+  background-color: #faf1e0;
 }
 .list-side-menu.active {
-  color: #fff;
+  color: #f8f4ee;
   background-color: #479bfb;
 }
 
@@ -197,10 +197,11 @@ body {
   }
 
   .flash-notice {
-    color: #026b14;
-    background-color: #e1f8db;
-    border-color: #76fd91;
-    background: linear-gradient(to right, #e1f8db, #b1f89f);
+    color: #09023a;
+    font-size: 1.1rem;
+    background-color: #f3f8db;
+    border-color: #fde976;
+    background: linear-gradient(to right, #f3f8db, #fde976);
   }
 
   .flash-alert {
