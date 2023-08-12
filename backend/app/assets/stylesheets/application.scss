@@ -349,6 +349,40 @@ body {
 
 
 // 薬登録画面  --------------------------------------
+.new-button {
+  background-color: #dbf9bc;
+  padding: 10px 0;
+  margin-left: 25%;
+}
+.new-button:hover {
+  background-color: #65e01d;
+  color: #fff;
+}
+
+.delete-button {
+  margin-left: 25%;
+  margin-top: 15px;
+  background-color: #f9f5f5;
+  border: 1px solid #fb0707;
+}
+.delete-button:hover {
+  background-color: #fb0707;
+  color: #fff;
+}
+
+.back-button {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 7px 30px;
+  border: 1px solid #084d8a;
+  border-radius: 10px;
+  background-color: #edf3fa;
+  transition: background-color 0.2s ease;
+}
+.back-button:hover {
+  background-color: #b1d6f6;
+}
+
 .label-placeholder {
   margin-top: 24px;  // ラベル分下げる
 }
@@ -438,7 +472,6 @@ body {
 .date-button {
   flex-grow: 1;
   padding: 10px 0;
-  // background-color: #f4f3f3;
   transition: background-color 0.2s ease;
   cursor: pointer;
 }
@@ -585,7 +618,7 @@ body {
 .delete-link {
   color: #fff;
   background-color: #f67676;
-  border: 3px solid #f86868;
+  border: 2px solid #f86868;
   border-radius: 10px;
   transition: background-color 0.2s ease;
 }
