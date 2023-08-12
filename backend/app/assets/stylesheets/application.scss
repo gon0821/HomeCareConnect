@@ -384,7 +384,7 @@ body {
 }
 
 .memo-content {
-  background-color: hsl(81, 64%, 96%);
+  background-color: #f7fbee;
   padding: 15px;
   border: 1px solid #ccc;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -392,24 +392,47 @@ body {
   word-wrap: break-word; /* 単語の折り返し */
 }
 
-// スケジュール画面 --------------------------------------
-.confirm-button {
-  background-color: rgb(233, 233, 233);
+// スケジュール画面 --------------------------------------------
+.schedule-week {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.date-button {
+  flex-grow: 1;
+  padding: 10px 0;
+  background-color: #f4f3f3;
   transition: background-color 0.2s ease;
-  border: 1px solid rgb(233, 233, 233);
+  cursor: pointer;
+}
+.date-button:hover {
+  background-color: #ecf8ce;
+}
+
+.confirm-button {
+  background-color: #e9e9e9;
+  transition: background-color 0.2s ease;
+  border: 1px solid #e9e9e9;
   border-radius: 7px;
   padding: 10px 25px;
+  border: 1px solid #2676f7;
   cursor: pointer;
+}
+.confirm-button:hover {
+  color: #fff;
+  background-color: #2676f7;
 }
 
 .confirm-button.confirmed {
-  border: 1px solid rgb(43, 101, 248);
-  background-color: rgb(122, 204, 252);
+  color: #fff;
+  background-color: #2676f7;
 }
 
 .card-confirmed {
-  background-color: rgb(228, 243, 249);
-  transition: background-color 0.8s ease-in;
+  background-color: #dfe6f6;
+  transition: background-color 0.5s ease-in;
 }
 
 .schedule-cards .card {
@@ -418,7 +441,7 @@ body {
   align-items: baseline;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(17, 5, 252, 0.2);
+  box-shadow: 3px 3px 5px #1105fc33;
   padding: 11px;
   margin: 10px 0;
 }

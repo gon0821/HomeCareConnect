@@ -1,11 +1,16 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h2 class="text-center mb-3"><%= @date.strftime("%-m月%-d日") %>のスケジュール</h2>
+      <h2 class="text-center mb-3"><%= @date.strftime("%-m/%-d") %>のスケジュール</h2>
 
-      <div class="d-flex justify-content-between mb-3">
-        <%= link_to '前の日', patient_schedules_path(@patient, date: @date - 1.day), class: "btn btn-info me-2" %>
-        <%= link_to '次の日', patient_schedules_path(@patient, date: @date + 1.day), class: "btn btn-info" %>
+      <div class="schedule-week">
+        <%= link_to "#{(@date-3).strftime("%-d")} (#{japanese_weekday(@date-3)})", patient_schedules_path(@patient, date: @date - 3.day), class: "btn date-button" %>
+        <%= link_to "#{(@date-2).strftime("%-d")} (#{japanese_weekday(@date-2)})", patient_schedules_path(@patient, date: @date - 2.day), class: "btn date-button" %>
+        <%= link_to "#{(@date-1).strftime("%-d")} (#{japanese_weekday(@date-1)})", patient_schedules_path(@patient, date: @date - 1.day), class: "btn date-button" %>
+        <%= link_to "#{@date.strftime("%-d")} (#{japanese_weekday(@date)})", patient_schedules_path(@patient, date: @date.day), class: "btn date-button" %>
+        <%= link_to "#{(@date+1).strftime("%-d")} (#{japanese_weekday(@date+1)})", patient_schedules_path(@patient, date: @date + 1.day), class: "btn date-button" %>
+        <%= link_to "#{(@date+2).strftime("%-d")} (#{japanese_weekday(@date+2)})", patient_schedules_path(@patient, date: @date + 2.day), class: "btn date-button" %>
+        <%= link_to "#{(@date+3).strftime("%-d")} (#{japanese_weekday(@date+3)})", patient_schedules_path(@patient, date: @date + 3.day), class: "btn date-button" %>
       </div>
 
       <div class="schedule-cards">
