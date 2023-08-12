@@ -3,39 +3,47 @@
   <%= link_to '＋ お薬を追加', new_patient_medication_path(current_patient), class: 'btn mb-0 add-medication' %>
   <hr>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <% @medications.each do |medication| %>
-      <div class="col">
-        <div class="card h-100 medication-card">
-          <div class="card-body">
-            <div class="medication-card-title">
-              <div class="medication-title"><%= medication.name %></div>
-              <%= link_to image_tag("medication-edit.svg"), edit_patient_medication_path(current_patient, medication), class: 'edit-icon' %>
-            </div>
-            <div class="card-item">
-              <span class="item-title">服用量 : </span>
-              <span class="item-content"><%= medication.dosage %></span>
-            </div>
-            <div class="card-item">
-              <span class="item-title">期 間 : </span>
-              <span class="item-content"><%= medication.start_date.strftime("%-m月%-d日") %> 〜 <%= medication.end_date.strftime("%-m月%-d日") %></span>
-            </div>
-            <div class="card-item">
-              <span class="item-title">時 間 : </span>
-              <span class="item-content">
-                <% [medication.time1, medication.time2, medication.time3, medication.time4, medication.time5].compact.each do |time| %>
-                  <span class="time-label"><%= time.strftime('%H:%M') %></span>
-                <% end %>
-              </span>
-            </div>
-
-              <span class="item-title memo-toggle" style="cursor: pointer;">ロード中・・・</span>
-              <div class="memo-content" style="display: none;">
-                <%= simple_format medication.memo %>
+  <% if @medications.present? %>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <% @medications.each do |medication| %>
+        <div class="col">
+          <div class="card h-100 medication-card">
+            <div class="card-body">
+              <div class="medication-card-title">
+                <div class="medication-title"><%= medication.name %></div>
+                <%= link_to image_tag("medication-edit.svg"), edit_patient_medication_path(current_patient, medication), class: 'edit-icon' %>
               </div>
+              <div class="card-item">
+                <span class="item-title">服用量 : </span>
+                <span class="item-content"><%= medication.dosage %></span>
+              </div>
+              <div class="card-item">
+                <span class="item-title">期 間 : </span>
+                <span class="item-content"><%= medication.start_date.strftime("%-m月%-d日") %> 〜 <%= medication.end_date.strftime("%-m月%-d日") %></span>
+              </div>
+              <div class="card-item">
+                <span class="item-title">時 間 : </span>
+                <span class="item-content">
+                  <% [medication.time1, medication.time2, medication.time3, medication.time4, medication.time5].compact.each do |time| %>
+                    <span class="time-label"><%= time.strftime('%H:%M') %></span>
+                  <% end %>
+                </span>
+              </div>
+
+                <span class="item-title memo-toggle" style="cursor: pointer;">ロード中・・・</span>
+                <div class="memo-content" style="display: none;">
+                  <%= simple_format medication.memo %>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="no-schedule">
+      <%= image_tag "no-medication.svg", class: "no-schedule-img" %>
+      <p>まだお薬が登録されていません</p>
+    </div>
+  <% end %>
+
 </div>
