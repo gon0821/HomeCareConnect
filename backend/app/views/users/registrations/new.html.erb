@@ -1,13 +1,12 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row justify-content-center">
-    <div class="col-md-6">
-    <h4 class="text-center mb-3">新規登録</h4>
+    <div class="col-lg-6">
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "card p-4" }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h3 class=" mb-3 text-center">アカウントを作成</h3>
 
       <% if resource.errors.any? %>
-        <div class="alert alert-danger">
-          <strong><%= pluralize(resource.errors.count, "件") %> のエラーが発生したため登録できませんでした</strong>
+        <div class="alert alert-danger"
           <ul>
           <% resource.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -16,49 +15,45 @@
         </div>
       <% end %>
 
-      <div class="mb-3">
-        <%= f.label :login_id, "ログインID", class: "form-label" %><br />
-        <%= f.text_field :login_id, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "4文字以上で入力してください" %>
+      <div class="mb-2">
+        <%= f.label :login_id, "ログインID", class: "form-label" %>
+        <%= f.text_field :login_id, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "半角英数字4文字以上で入力" %>
       </div>
 
-      <div class="mb-3">
-        <%= f.label :password , class: "form-label"%>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control",placeholder: "6文字以上で入力してください"  %>
+      <div class="mb-4">
+        <%= f.label :password , class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control",placeholder: "半角英数字6文字以上で入力"  %>
       </div>
 
-      <div class="mb-3">
-        <%= f.label :password_confirmation, "パスワード", class: "form-label" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "確認用" %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.label :name, class: "form-label" %><br />
-        <%= f.text_field :name, autocomplete: "name", class: "form-control" %>
+      <div class="mb-4">
+        <!-- <%= f.label :name, class: "form-label" %><br /> -->
+        <%= f.text_field :name, autocomplete: "name", class: "form-control", placeholder: "名前" %>
       </div>
 
 
       <div class="mb-3">
-        <%= f.label :email, class: "form-label" %><br />
-        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+        <!-- <%= f.label :email, class: "form-label" %><br /> -->
+        <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Eメール" %>
       </div>
 
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <%= f.label :role, class: "form-label" %><br />
+          <%= f.select :role, [['患者', 'patient'], ['家族', 'family'], ['医師', 'doctor'], ['看護師', 'nurse'], ['ケアマネージャー', 'care_manager']], {}, {class: "form-select"}  %>
+        </div>
 
-      <div class="mb-3">
-        <%= f.label :role, class: "form-label" %><br />
-        <%= f.select :role, [['患者', 'patient'], ['家族', 'family'], ['医師', 'doctor'], ['看護師', 'nurse'], ['ケアマネージャー', 'care_manager']], {}, {class: "form-select"}  %>
-
-
+        <div class="col-md-6 mb-3">
+          <%= f.label :secret_patient_id, class: "form-label" %><br />
+          <%= f.text_field :secret_patient_id, class: "form-control", placeholder: "患者以外の方は入力" %>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <%= f.label :secret_patient_id, class: "form-label" %><br />
-        <%= f.text_field :secret_patient_id, class: "form-control" %>
+      <div class="mb-3 mt-3">
+        <%= f.submit "新 規 登 録", class: "btn w-100 main-link"  %>
       </div>
-
-      <div class="mb-3">
-        <%= f.submit "新規登録", class: "btn btn-primary w-100"  %>
-      </div>
-      <% end %>
+    <% end %>
+    <hr>
+    <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "btn w-100 another-link" %>
     </div>
   </div>
 </div>

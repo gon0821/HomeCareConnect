@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>HomeCareConnect | 在宅療養者の情報共有プラットフォーム</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -30,8 +31,7 @@
                     <li class="user-name"><%= current_user.name %>（<%= role_in_japanese(current_user.role) %>）</li>
                     <li><%= link_to raw('<i class="fa-solid fa-gear" style="color: #878787;"></i>  設定'), edit_user_registration_path %></li>
                     <li class="divider"></li>
-                    <li><%= link_to raw('<i class="fa-regular fa-address-book" style="color: #787878;"></i> プロフィール・患者ID'), home_show_path %></li>
-                    <li><%= link_to raw('<i class="fa-solid fa-desktop" style="color: #999999;"></i>  アップデート予定') %></li>
+                    <li><%= link_to raw('<i class="fa-regular fa-address-book" style="color: #787878;"></i> プロフィール・患者ID'), "#", id: "openModal"  %></li>
                     <li class="divider"></li>
                     <li class="logout-button"><%= link_to raw('<i class="fa-solid fa-right-to-bracket" style="color: #4d4d4d;"></i> ログアウト'), destroy_user_session_path, method: :delete %></li>
                   </ul>
@@ -73,6 +73,28 @@
           <div class="content-area">
             <!-- ここに各ビューが表示される -->
             <%= yield %>
+
+            <div id="userSettingsModal" class="modal">
+              <div class="modal-content">
+                <!-- ここまでモーダルウィンドウ、以下はモーダル内容 -->
+                <div class="modal-header">
+                  ユーザー情報
+                  <span id="closeModal" >&times;</span>
+                </div>
+
+                <div class="container">
+                  <div class="card-body">
+                    <p><strong>ユーザーID:</strong> <%= current_user.login_id %></p>
+                    <p><strong>ユーザー名:</strong> <%= current_user.name %></p>
+                    <p><strong>メールアドレス:</strong> <%= current_user.email %></p>
+                    <p><strong>ユーザータイプ:</strong> <%= role_in_japanese(current_user.role) %></p>
+                    <p><strong>患者ID:</strong> <%= current_user.secret_patient_id %></p>
+                    <p class="text-muted">パスワードはセキュリティ上表示されません。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         <% else %>      <!-- ログイン前ー -->
           <div class="col-12">
