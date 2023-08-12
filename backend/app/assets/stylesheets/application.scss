@@ -349,6 +349,40 @@ body {
 
 
 // 薬登録画面  --------------------------------------
+.new-button {
+  background-color: #dbf9bc;
+  padding: 10px 0;
+  margin-left: 25%;
+}
+.new-button:hover {
+  background-color: #65e01d;
+  color: #fff;
+}
+
+.delete-button {
+  margin-left: 25%;
+  margin-top: 15px;
+  background-color: #f9f5f5;
+  border: 1px solid #fb0707;
+}
+.delete-button:hover {
+  background-color: #fb0707;
+  color: #fff;
+}
+
+.back-button {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 7px 30px;
+  border: 1px solid #084d8a;
+  border-radius: 10px;
+  background-color: #edf3fa;
+  transition: background-color 0.2s ease;
+}
+.back-button:hover {
+  background-color: #b1d6f6;
+}
+
 .label-placeholder {
   margin-top: 24px;  // ラベル分下げる
 }
@@ -373,19 +407,72 @@ body {
 }
 
 // 薬一覧画面 --------------------------------------
+.add-medication {
+  padding: 5px 15px;
+  border: 3px solid #3cd803;
+}
+.add-medication:hover {
+  background-color: #36c403;
+  color: #fff;
+}
+
+.medication-card {
+  border-radius: 15px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.medication-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.medication-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:#0423a0
+}
+
+.edit-icon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.5s ease;
+  background-color: #f1f8e8;
+  border: 1px solid #30a604;
+}
+.edit-icon:hover {
+  background-color: #a0f581;
+  color: #fff;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-title {
+  width: 80px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: right;
+  display: inline-block;
+}
+
 .time-label {
   display: inline-block;
   padding: 5px 10px;
   margin: 3px;
-  background-color: #c7eafb;
+  background-color: #cafbc7;
   border-radius: 5px;
 }
 
 .memo-content {
-  background-color: #f7fbee;
-  padding: 15px;
-  border: 1px solid #ccc;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  background-color: #f9fdf4;
+  border-radius: 15px;
   line-height: 1.5;
   word-wrap: break-word; /* 単語の折り返し */
 }
@@ -438,7 +525,6 @@ body {
 .date-button {
   flex-grow: 1;
   padding: 10px 0;
-  // background-color: #f4f3f3;
   transition: background-color 0.2s ease;
   cursor: pointer;
 }
@@ -585,7 +671,7 @@ body {
 .delete-link {
   color: #fff;
   background-color: #f67676;
-  border: 3px solid #f86868;
+  border: 2px solid #f86868;
   border-radius: 10px;
   transition: background-color 0.2s ease;
 }
