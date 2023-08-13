@@ -234,7 +234,11 @@ body {
     bottom: 0;
     left: 20%;
     width: 80%;
-    background-color: #b3b3b3;
+    background-color: #eaf2fc;
+    transition: background-color 0.8s ease;
+  }
+  .fixed-form:hover {
+    background-color: #c3daf6;
   }
 
   #message_content {
@@ -275,14 +279,14 @@ body {
   display: flex;
   justify-content: flex-start;
   max-width: 75%;
-  // padding: 1px;
   border-radius: 5px;
   margin-left: 30px;
 }
 
 .my-message .card { // 吹き出し（自分）
+  color: #fff;
   margin-left: auto;
-  background-color: #dcf1f8;
+  background-color: #378af8;
 }
 
 .other-message .card {  // 吹き出し（他人）
@@ -299,7 +303,7 @@ body {
   border: 10px solid transparent;
   right: -20px;
   top: 4;
-  border-left-color: #dcf1f8;
+  border-left-color:#378af8;
 }
 
 .other-message .card:before { // 吹き出しの三角部分（他人）
