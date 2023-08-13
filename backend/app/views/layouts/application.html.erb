@@ -13,39 +13,35 @@
 
   <body>
     <div class="header">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col">
-            <% if user_signed_in? %>
-              <%= link_to image_tag('hcc_logo.png', alt: 'HomeCareConnect', class: 'hcc-logo'), rooms_show_path %>
-            <% else %>
-              <%= link_to image_tag('hcc_logo.png', alt: 'HomeCareConnect', class: 'hcc-logo'), root_path %>
-            <% end %>
-          </div>
-          <% if user_signed_in? %>
-            <div class="col text-end">
-              <div class="user-menu">
-                <div class="user-icon" id="userIcon"></div>
-                <div class="user-dropdown" id="userDropdown">
-                  <ul>
-                    <li class="user-name"><%= current_user.name %>（<%= role_in_japanese(current_user.role) %>）</li>
-                    <li><%= link_to raw('<i class="fa-solid fa-gear" style="color: #878787;"></i>  設定'), edit_user_registration_path %></li>
-                    <li class="divider"></li>
-                    <li><%= link_to raw('<i class="fa-regular fa-address-book" style="color: #787878;"></i> プロフィール・患者ID'), "#", id: "openModal"  %></li>
-                    <li class="divider"></li>
-                    <li class="logout-button"><%= link_to raw('<i class="fa-solid fa-right-to-bracket" style="color: #4d4d4d;"></i> ログアウト'), destroy_user_session_path, method: :delete %></li>
-                  </ul>
-                </div>
-              </div>
+      <% if user_signed_in? %> <!-- ログインしている場合 -->
+        <div class="after-login">
+          <%= link_to image_tag('hcc_logo.png', alt: 'HomeCareConnect', class: 'hcc-logo'), rooms_show_path %>
+
+          <div class="user-menu">
+            <%= image_tag "#{current_user.role}.png", class: "user-icon", id: "userIcon" %>
+            <!-- <div class="user-icon" id="userIcon"></div> -->
+            <div class="user-dropdown" id="userDropdown">
+              <ul>
+                <li class="user-name"><%= current_user.name %>（<%= role_in_japanese(current_user.role) %>）</li>
+                <li><%= link_to raw('<i class="fa-solid fa-gear" style="color: #878787;"></i>  設定'), edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to raw('<i class="fa-regular fa-address-book" style="color: #787878;"></i> プロフィール・患者ID'), "#", id: "openModal"  %></li>
+                <li class="divider"></li>
+                <li class="logout-button"><%= link_to raw('<i class="fa-solid fa-right-to-bracket" style="color: #4d4d4d;"></i> ログアウト'), destroy_user_session_path, method: :delete %></li>
+              </ul>
             </div>
-          <% else %>
-            <div class="col text-end">
+          </div>
+
+        </div>
+      <% else %>  <!-- ログインしていない場合 -->
+        <div class= "before-login" >
+            <%= link_to image_tag('hcc_logo.png', alt: 'HomeCareConnect', class: "hcc-logo"), root_path %>
+          <div class="login-assign">
               <a href="<%= new_user_session_path %>" class="btn login-button">ログイン</a>
               <a href="<%= new_user_registration_path %>" class="btn assign-button">無料で開始する</a>
-            </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
 
     <!-- deviseのflashメッセージを表示する -->
