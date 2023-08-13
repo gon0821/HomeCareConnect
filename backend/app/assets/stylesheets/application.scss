@@ -69,6 +69,13 @@
   background-color: #0783f7;
 }
 
+.after-login {
+  line-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
 
 // ユーザーメニュー ----------------------------------------------------
 .user-menu {
@@ -79,11 +86,14 @@
   width: 45px;
   height: 45px;
   background-color: #fff;
-  border-radius: 50%;
   cursor: pointer;
   display: inline-block;
-  // padding: 10px 0;
-  margin: 0;
+  margin-bottom: 3px;
+  margin-right: 8px;
+  transition: background-color 0.5s ease;
+}
+.user-icon:hover {
+  background-color: #89f56e;
 }
 
 .user-dropdown {
@@ -91,7 +101,7 @@
   position: absolute;
   top: 50px;     /* アイコンの下に配置 */
   right: 0;
-  width: 300px;
+  width: 330px;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
@@ -124,7 +134,7 @@
   height: 40px;
   line-height: 40px;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .logout-button {
   margin-bottom: 10px;
