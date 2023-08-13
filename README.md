@@ -1,6 +1,27 @@
 # HomeCareConnect
-Information sharing services for home care patients
+![ヘッダー画像](/docs/img/Readme/hcc_readme.png)
+
+
+## ■ サービス URL
+
+[HomeCareConnect（サービストップページ）](https://yonex0821naoki.net/)
+
+## ■ サービス概要
+
+在宅療養者にとって、命に関わる重要な健康管理を家族、医療・介護スタッフが連携して行い、在宅療養者を支える環境を構築します。
+
+## ■ サービスを作った想い
+
+高齢の祖父が安心して住み慣れた自宅で、最後まで暮らせるように周りのみんなでサポートしたい。
+そのために祖父に関する情報をみんなで共有することで、スムーズなサポートが可能になる。
+また、在宅療養者にとって薬の正確な服用は非常に大事。しかし、在宅療養者となると薬の種類も多いので管理が大変なためお薬管理機能でサポートする。
+
+## ■ 機能一覧
+
+| トップ画面 |　新規登録画面 |
+| ---- | ---- |
+| ![Top画面](/docs/img/Readme/top-page.png) | ![新規登録画面](/docs/img/Readme/sign-up-page.png) |
+| 登録せずにサービスをお試しいただくためのトライアル機能を実装しました。 | ログインIDとパスワードでの認証機能を実装しました。 |
 
 ### Documents
-
 - [Document file](./docs/documentation.md)
