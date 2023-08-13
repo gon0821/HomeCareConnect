@@ -1,5 +1,6 @@
 <div class="message mb-2 <%= message.user.id == current_user.id ? 'my-message' : 'other-message' %>" data-user-id="<%= message.user.id %>" >
-  <div class="icon-box"></div>
+
+  <%= image_tag "#{message.user.role}.png", class: "icon-box" %>
   <div class="user-name">
     <strong><%= message.user.name %></strong>
   </div>

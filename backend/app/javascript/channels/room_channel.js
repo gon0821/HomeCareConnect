@@ -9,31 +9,35 @@ document.addEventListener("turbo:load", function(){
 
         const appRoom = consumer.subscriptions.create({channel: "RoomChannel", secret_id: secretId}, {
           connected() {
-            console.log("Connected to the channel with secretId:", secretId);
+            // console.log("Connected to the channel with secretId:", secretId); //　チャンネル接続したときの患者IDを確認
           },
 
           disconnected() {
           },
 
           received(data) {
-            console.log("メッセージを受け取った", data);
+            // console.log("メッセージを受け取った", data);
             const messages = document.getElementById('messages');
             const div = document.createElement('div');
-            div.innerHTML = data['message'];
+            div.innerHTML = data['message'];  // 作成した<div>の内部に、受け取ったメッセージのHTML
+
+            // console.log(data['message']); // 後でなぜmy-messageクラスがついているか調べる
+
             const messageUserId = div.querySelector('.message').dataset.userId;
             const currentUserId = document.getElementById('messages').dataset.currentUserId;
             if (messageUserId === currentUserId) {
-              console.log("自分のメッセージ");
+              // console.log("自分のメッセージ");
               div.querySelector('.message').classList.add('my-message');
             } else {
-              console.log("他人のメッセージ");
+              // console.log("他人のメッセージ");
               div.querySelector('.message').classList.add('other-message');
             }
+            // console.log(div.firstElementChild);　// messages要素の先頭に挿入されるmessage内容確認
             messages.insertAdjacentElement('afterbegin', div.firstElementChild);
           },
 
           speak: function(message) {
-            console.log("これからメッセージを送る", message);
+            // console.log("これからメッセージを送る", message);
             return this.perform('speak', { message: message, secret_id: secretId});
           }
         });
