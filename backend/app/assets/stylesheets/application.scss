@@ -303,6 +303,7 @@ body {
 
 .my-message .card { // 吹き出し（自分）
   color: #fff;
+  margin-right: 10px;
   margin-left: auto;
   background-color: #378af8;
 }
@@ -357,7 +358,7 @@ body {
 
 .other-message .user-name { // 他人のユーザー名
   display: block;
-  margin-left: 60px;
+  margin-left: 65px;
 }
 
 .my-message .icon-box {
