@@ -24,15 +24,28 @@
   z-index: 1000;
   height: 60px;
   background-color: #044a91;
-  padding: 5px 0;
+  // padding: 5px 0;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.before-login {
+  line-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hcc-logo { // ヘッダーのタイトル
+  vertical-align: middle;
+  height: auto;
+  max-height: 35px;
 }
 
 .login-button {   // ログインボタン
   margin-right: 10px;
-  width: 130px;
-  height: 45px;
-  padding: 10px 0;
+  margin-bottom: 3px;
+  padding: 8px 20px;
   background-color: #ffffff;
   border-radius: 10px;
   transition: background-color 0.3s ease;
@@ -43,9 +56,8 @@
 }
 
 .assign-button {  // 新規登録ボタン
-  width: 140px;
-  height: 45px;
-  padding: 10px 0;
+  margin-bottom: 3px;
+  padding: 8px 10px;
   color: #000000;
   border: 1px solid #035bad;
   background-color: #4ba6fb;
@@ -57,11 +69,6 @@
   background-color: #0783f7;
 }
 
-.hcc-logo { // ヘッダーのタイトル
-  height: 30px;
-  margin: 0;
-  padding: 0;
-}
 
 // ユーザーメニュー ----------------------------------------------------
 .user-menu {
