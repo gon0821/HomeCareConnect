@@ -60,6 +60,7 @@ document.addEventListener("turbo:before-fetch-request", function () {
   var subscriptions = consumer.subscriptions['subscriptions'];
 
   subscriptions.forEach(function (subscription) {
-    consumer.subscriptions.remove(subscription);
+    consumer.subscriptions.remove(subscription); // 他のページへ遷移した後に戻ってくると新たなsubscriptionが追加され、メッセージを投稿すると既存のsubscriptionに加えて新たなsubscriptionにもメッセージが送られ2回目以降、回数分のメッセージが表示されてしまう。そのため、ページ遷移するたびに既存のsubscriptionを削除する。
   });
+  consumer.disconnect(); // 明示的にWebSocket接続を切断する。同じ端末で別のユーザーでログインしたときに、前のユーザーのWebSocket接続が残っていると、前のユーザーのメッセージが表示されてしまうため。
 });
