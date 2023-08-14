@@ -2,7 +2,7 @@
 
   <%= image_tag "#{message.user.role}.png", class: "icon-box" %>
   <div class="user-name">
-    <strong><%= message.user.name %></strong>
+    <strong><%= message.user.name %>（<%= role_in_japanese(message.user.role) %>）</strong>
   </div>
   <div class="card <%= message.user.id == current_user.id ? 'my-card' : 'other-card' %>">
     <div class="card-body pl-0 pb-0 pt-0 pr-0">
