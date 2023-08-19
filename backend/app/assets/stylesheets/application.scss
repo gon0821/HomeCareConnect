@@ -46,13 +46,13 @@
   margin-right: 10px;
   margin-bottom: 3px;
   padding: 8px 20px;
-  background-color: #ffffff;
+  background-color: #dbf9bc;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 .login-button:hover {
   color: #fff;
-  background-color: #6ab8f3;
+  background-color: #65e01d;
 }
 
 .assign-button {  // 新規登録ボタン
@@ -651,13 +651,15 @@ body {
   background-color: #067af7;
 }
 
+.hcc-login-button {
+  // トップページ上のログインボタン
+  display: none;
+}
+
 .patient-text {
   color:rgb(6, 161, 84);
 }
 
-.top-content {
-  background-color: bisque;
-}
 
 // 新規登録画面　---------------------------------------------
 .password_confirmation {
@@ -755,4 +757,49 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+// レスポンシブ対応 ---------------------------------------------
+@media (max-width: 700px) {
+  .hcc-logo {
+      // ヘッダーのタイトル
+      vertical-align: middle;
+      height: auto;
+      max-height: 25px;
+    }
+
+    .before-login {
+    padding: 0 5px;
+    }
+
+    .login-button {
+      // ヘッダーのログインボタン
+      display: none;
+    }
+    .assign-button {
+      // 新規登録ボタン
+      display: none;
+    }
+
+    .hcc-login-button {
+      // トップページ上のログインボタン
+      display: inline-block;
+      padding: 10px 30px;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #000000;
+      background-color: #dbf9bc;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hcc-login-button:hover {
+      color: #fff;
+      background-color: #65e01d;
+    }
+
+    .after-login {
+      padding: 0 10px;
+    }
 }

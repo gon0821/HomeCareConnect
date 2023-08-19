@@ -3,7 +3,12 @@
     <div class="col-lg-6">
       <h2 class="display-4"><span class="patient-text">在宅療養者</span>と<br>その関係者のための情報共有プラットフォーム</h2>
       <p class="lead">命に関わる重要な健康管理を家族、医療・介護スタッフが連携して行い、在宅療養者を支える環境を構築します。</p>
-      <%= link_to "HCCを無料で開始する", new_user_registration_path, class: "hcc-button" %>
+      <div>
+        <%= link_to "HCCを無料で開始する", new_user_registration_path, class: "hcc-button" %>
+      </div>
+      <div>
+        <%= link_to "ログイン", new_user_session_path, class: "hcc-login-button" %>
+      </div>
 
     </div>
     <div class="col-lg-6">
