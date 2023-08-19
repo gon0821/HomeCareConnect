@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
 
   # 今日の服用スケジュールを取得し、一覧表示する
   def index
-    date = params[:date]&.to_date || Date.today
+    date = params[:date]&.to_date || Date.current
     schedules_on_date = Schedule.joins(:medication).where(medications: { secret_patient_id: @patient.secret_id}, date: date)
     schedules_sorted_by_time = schedules_on_date.sort_by do |schedule|
       schedule.medication.send("time#{schedule.time_slot}").seconds_since_midnight

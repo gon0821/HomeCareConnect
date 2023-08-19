@@ -8,7 +8,7 @@
         <% next_start_date = @date+7 %>
         <%= link_to "◀", patient_schedules_path(@patient, date: last_start_date), class: "btn last-week-button", title: "前の週" %>
         <%= link_to "▶", patient_schedules_path(@patient, date: next_start_date), class: "btn next-week-button", title: "次の週"  %>
-        <%= link_to "今日", patient_schedules_path(@patient, date: Date.today), class: "btn today-button"%>
+        <%= link_to "今日", patient_schedules_path(@patient, date: Date.current), class: "btn today-button"%>
       </div>
 
       <div class="schedule-week">
