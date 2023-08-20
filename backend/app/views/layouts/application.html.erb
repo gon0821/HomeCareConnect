@@ -59,13 +59,27 @@
                 <%= image_tag 'comment-dots-regular.svg', alt: 'チャット', class: 'icon-class' %>チャットルーム
               </a>
               <a href="<%= patient_schedules_path(current_patient) %>" class="list-side-menu <%= 'active' if current_page?(patient_schedules_path(current_patient)) %>">
-                <%= image_tag 'rectangle-list-regular.svg', alt: 'スケジュール', class: 'icon-class' %>服用スケジュール
+                <%= image_tag 'clock-regular.svg', alt: 'スケジュール', class: 'icon-class' %>服用スケジュール
               </a>
               <a href="<%=  patient_medications_path(current_patient) %>" class="list-side-menu <%= 'active' if current_page?(patient_medications_path(current_patient)) %>">
-                <%= image_tag 'file-medical-solid.svg', alt: 'お薬リスト', class: 'icon-class-list' %>お薬リスト
+                <%= image_tag 'rectangle-list-regular.svg', alt: 'お薬リスト', class: 'icon-class' %>お薬リスト
               </a>
             </div>
           </div>
+
+          <! -- スマホ用にタブバーを設置 -->
+          <div class="tab-bar">
+            <a href="<%= rooms_show_path %>" class="tab-item <%= 'active' if current_page?(rooms_show_path) %>">
+              <%= image_tag 'comment-dots-regular.svg', alt: 'チャット', class: 'tab-icon' %><span class="tab-name">チャット</span>
+            </a>
+            <a href="<%= patient_schedules_path(current_patient) %>" class="tab-item <%= 'active' if current_page?(patient_schedules_path(current_patient)) %>">
+              <%= image_tag 'clock-regular.svg', alt: 'スケジュール', class: 'tab-icon' %><span class="tab-name">スケジュール</span>
+            </a>
+            <a href="<%=  patient_medications_path(current_patient) %>" class="tab-item <%= 'active' if current_page?(patient_medications_path(current_patient)) %>">
+              <%= image_tag 'rectangle-list-regular.svg', alt: 'お薬リスト', class: 'tab-icon' %><span class="tab-name">リスト</span>
+            </a>
+          </div>
+
           <div class="content-area">
             <!-- ここに各ビューが表示される -->
             <%= yield %>
