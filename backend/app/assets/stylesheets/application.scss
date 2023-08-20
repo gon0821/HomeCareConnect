@@ -26,6 +26,7 @@
   background-color: #044a91;
   // padding: 5px 0;
   border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 5px 5px -4px #ccc;
 }
 
 .before-login {
@@ -664,6 +665,12 @@ body {
   color:rgb(6, 161, 84);
 }
 
+.top-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 // 新規登録画面　---------------------------------------------
 .password_confirmation {
