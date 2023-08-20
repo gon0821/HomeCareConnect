@@ -26,6 +26,7 @@
   background-color: #044a91;
   // padding: 5px 0;
   border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 5px 5px -4px #ccc;
 }
 
 .before-login {
@@ -46,13 +47,13 @@
   margin-right: 10px;
   margin-bottom: 3px;
   padding: 8px 20px;
-  background-color: #ffffff;
+  background-color: #dbf9bc;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 .login-button:hover {
   color: #fff;
-  background-color: #6ab8f3;
+  background-color: #65e01d;
 }
 
 .assign-button {  // 新規登録ボタン
@@ -237,6 +238,7 @@ body {
 // チャットルーム  --------------------------------------
 .chat-box {
   width: 100%;
+  margin-bottom: 60px;
 }
 
 
@@ -246,14 +248,17 @@ body {
     bottom: 0;
     left: 20%;
     width: 80%;
+    padding: 9px 15px 15px 15px;
     background-color: #eaf2fc;
     transition: background-color 0.8s ease;
+    box-shadow: 0 -5px 5px -5px #ccc;
   }
   .fixed-form:hover {
     background-color: #c3daf6;
   }
 
   #message_content {
+    margin-right: 15px;
     resize: none; // テキストエリアのリサイズを無効化
   }
 
@@ -329,7 +334,7 @@ body {
   border: 10px solid transparent;
   left: -20px;
   top: 4;
-  border-right-color: #f4f4f4;
+  border-right-color: #fffbf5;
 }
 
 .my-message .timestamp {
@@ -651,12 +656,20 @@ body {
   background-color: #067af7;
 }
 
+.hcc-login-button {
+  // トップページ上のログインボタン
+  display: none;
+}
+
 .patient-text {
   color:rgb(6, 161, 84);
 }
 
-.top-content {
-  background-color: bisque;
+.top-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 // 新規登録画面　---------------------------------------------
@@ -755,4 +768,116 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+// レスポンシブ対応 ---------------------------------------------
+@media (max-width: 700px) {
+  .hcc-logo {
+      // ヘッダーのタイトル
+      vertical-align: middle;
+      height: auto;
+      max-height: 25px;
+    }
+
+    .before-login {
+    padding: 0 5px;
+    }
+
+    .login-button {
+      // ヘッダーのログインボタン
+      display: none;
+    }
+    .assign-button {
+      // 新規登録ボタン
+      display: none;
+    }
+
+    .hcc-login-button {
+      // トップページ上のログインボタン
+      display: inline-block;
+      padding: 10px 30px;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #000000;
+      background-color: #dbf9bc;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hcc-login-button:hover {
+      color: #fff;
+      background-color: #65e01d;
+    }
+
+    .after-login {
+      padding: 0 10px;
+    }
+
+    // サイドメニュー削除関係 ---------------------------------------------
+    .side-menu {
+      display: none;
+    }
+    .content-area {
+      margin-left: 0;
+      width: 100%;
+    }
+    .fixed-form {
+      bottom: 46px;
+      left: 0;
+      width: 100%;
+      padding: 4px 7px;
+    }
+    #message_content {
+      margin-right: 8px;
+    }
+    .submit-button {
+      height: auto;
+    }
+}
+
+.tab-bar {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  box-shadow: 0 -5px 5px -5px #ccc;
+  // background-color: #defed2;
+}
+
+.tab-item {
+  flex-grow: 1;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 8px;
+  height: 46px;
+  text-decoration: none;
+  color:#000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tab-item.active {
+  background-color: #ffffff;
+}
+
+.tab-icon {
+  width: 20px;
+  height: auto;
+  margin-bottom: 2px;
+}
+.tab-name {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 700px) {
+  .tab-bar {
+    display: none;
+  }
 }

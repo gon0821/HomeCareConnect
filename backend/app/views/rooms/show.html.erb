@@ -4,10 +4,10 @@
             <%= render @messages %>
           </div>
         </div>
-        <div class="card p-3 pt-2 pb-4 fixed-form">
-          <form id="new_message" class="mt-1">
+        <div class="card fixed-form">
+          <form id="new_message">
             <div class="form-group d-flex">
-              <textarea id="message_content" data-behavior="room_speaker" class="form-control me-3 flex-grow-1" rows="1" placeholder="ここにメッセージを入力 ➢"></textarea>
+              <textarea id="message_content" data-behavior="room_speaker" class="form-control flex-grow-1 custom-form-input" rows="1" placeholder="ここにメッセージを入力 ➢"></textarea>
               <button type="submit" class="submit-button">
                 <i class="fa-regular fa-paper-plane fa-lg" style="color: #fafcff;"></i>
               </button>
@@ -15,4 +15,3 @@
           </form>
         </div>
   </div>
-
