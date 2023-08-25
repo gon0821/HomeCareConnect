@@ -238,7 +238,7 @@ body {
 // チャットルーム  --------------------------------------
 .chat-box {
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 
@@ -706,6 +706,7 @@ body {
 // 設定画面　---------------------------------------------
 .delete-link {
   color: #fff;
+  margin-bottom: 10px;
   background-color: #f67676;
   border: 2px solid #f86868;
   border-radius: 10px;
@@ -839,6 +840,12 @@ body {
     .flash-container.logged-in .flash {
       left: 0;
       width: 100%;
+    }
+
+    .modal-content {
+      // モーダルウィンドウの中身（表示される部分）
+      margin-top: 25%;
+      width: 90%;
     }
 }
 
