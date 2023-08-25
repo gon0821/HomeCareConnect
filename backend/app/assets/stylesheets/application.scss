@@ -840,6 +840,12 @@ body {
       left: 0;
       width: 100%;
     }
+
+    .modal-content {
+      // モーダルウィンドウの中身（表示される部分）
+      margin-top: 25%;
+      width: 90%;
+    }
 }
 
 .tab-bar {
