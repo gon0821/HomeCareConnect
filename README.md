@@ -93,14 +93,14 @@
 
 ## ■ インフラ構成図
 
-![インフラ構成図](/docs/img/system_configuration_diagram/system_configuration_diagram1.1.png)
+![インフラ構成図](/docs/img/system_configuration_diagram/system_configuration_diagram1.2.png)
 
 ## ■ 作成時に工夫した点
 
 <details>
 <summary>１. 患者別のプラットフォーム</summary>
 
-- 患者IDを導入することで、患者ごとの専用のプラットフォームが提供され、個別のケアや情報共有をスムーズに行えるようにしました。
+- 患者IDを導入することで、患者ごとに紐づいたユーザーが作成されるようになり、患者別のケアや情報共有をスムーズに行えるようにしました。
 </details>
 
 <details>
