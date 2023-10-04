@@ -10,11 +10,11 @@
 
 | ログイン ID        | パスワード     | ユーザータイプ |
 | ----------------- | ------------ | ------------ |
-| user1 | password | 患者 |
-| user2 | password | 家族 |
-| user3 | password | 看護師 |
-| user4 | password | 医師 |
-| user5 | password | ケアマネジャー |
+| User1 | password | 患者 |
+| User2 | password | 家族 |
+| User3 | password | 看護師 |
+| User4 | password | 医師 |
+| User5 | password | ケアマネジャー |
 
 ## ■ サービス概要
 
